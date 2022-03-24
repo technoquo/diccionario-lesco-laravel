@@ -21,8 +21,8 @@
                             {{ __('Nombre') }}:
                         </label>
 
-                        <input id="name" type="text" class="w-full form-input border-2 @error('name')  border-red-500 @enderror"
-                            name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input id="name" type="text" class="w-full form-input border-2 rounded @error('name')  border-red-500 @enderror"
+                            name="name" value="{{ old('name') }}" required autocomplete="name" autofocus oninvalid="this.setCustomValidity('Por favor escriba su nombre completo');" onchange="try{setCustomValidity('')}catch(e){};" x-moz-errormessage="Por favor escriba su nombre">
 
                         @error('name')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -32,13 +32,29 @@
                     </div>
 
                     <div class="flex flex-wrap">
+                        <label for="lastname" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Apellidos') }}:
+                        </label>
+
+                        <input id="lastname" type="text" class="w-full form-input border-2 rounded @error('lastname')  border-red-500 @enderror"
+                            name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus oninvalid="this.setCustomValidity('Por favor escriba sus apellidos');" onchange="try{setCustomValidity('')}catch(e){};" x-moz-errormessage="Por favor escriba sus apellidos">
+
+                        @error('lastname')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+
+                    <div class="flex flex-wrap">
                         <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('Correo electrónico') }}:
                         </label>
 
                         <input id="email" type="email"
-                            class="w-full form-input border-2 @error('email') border-red-500 @enderror" name="email"
-                            value="{{ old('email') }}" required autocomplete="email">
+                            class="w-full form-input border-2 rounded  @error('email') border-red-500 @enderror" name="email"
+                            value="{{ old('email') }}" required autocomplete="email" oninvalid="this.setCustomValidity('Por favor escriba su email correctamente');" onchange="try{setCustomValidity('')}catch(e){};" x-moz-errormessage="Por favor escriba su email correctamente">
 
                         @error('email')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -53,7 +69,7 @@
                         </label>
 
                         <input id="password" type="password"
-                            class="w-full form-input border-2 @error('password') border-red-500 @enderror" name="password"
+                            class="w-full form-input border-2 rounded @error('password') border-red-500 @enderror" name="password"
                             required autocomplete="new-password">
 
                         @error('password')
@@ -68,7 +84,7 @@
                             {{ __('Confirmar contraseña') }}:
                         </label>
 
-                        <input id="password-confirm" type="password" class="w-full form-input border-2"
+                        <input id="password-confirm" type="password" class="w-full form-input border-2 rounded"
                             name="password_confirmation" required autocomplete="new-password">
                     </div>
 

@@ -23,9 +23,9 @@
                     </p>
 
                     <p>
-                        {{ __('If you did not receive the email') }}, <a
+                        {{ __('Si no recibiste el correo electrónico') }}, <a
                             class="text-blue-500 hover:text-blue-700 no-underline hover:underline cursor-pointer"
-                            onclick="event.preventDefault(); document.getElementById('resend-verification-form').submit();">{{ __('click here to request another') }}</a>.
+                            onclick="event.preventDefault(); document.getElementById('resend-verification-form').submit();">{{ __('Haga clic aquí para solicitar otro') }}</a>.
                     </p>
 
                     <form id="resend-verification-form" method="POST" action="{{ route('verification.resend') }}"

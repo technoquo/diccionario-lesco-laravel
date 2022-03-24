@@ -19,7 +19,7 @@
                         </label>
 
                         <input id="email" type="email"
-                            class="w-full form-input border-2" name="email"
+                            class="w-full form-input border-2 rounded" name="email"
                             value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
@@ -35,7 +35,7 @@
                         </label>
 
                         <input id="password" type="password"
-                            class="w-full form-input border-2" name="password"
+                            class="w-full form-input border-2 rounded" name="password"
                             required>
 
                         @error('password')
@@ -63,7 +63,7 @@
                     <div class="flex flex-wrap">
                         <button type="submit"
                         class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500  sm:py-4">
-                            {{ __('Login') }}
+                            {{ __('Empezar') }}
                         </button>
 
                         @if (Route::has('register'))

@@ -29,14 +29,23 @@
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                     <div class="hidden md:flex items-center space-x-1">
                         <ul class="flex">
-                          <li><a class="no-underline text-black mr-4" target="_blank"
-                            href="https://www.handsonlesco.com/">¿Quienés somos?</a></li>
-                          <li><a class="no-underline  text-black mr-4" target="_blank"
-                            href="https://www.handsonlesco.com/blog/">Blog</a></li>
-                       <li><a class="no-underline  text-black mr-4" target="_blank"
-                            href="https://www.handsonlesco.com/contactanos/">Contacto</a> </li>                     
-                        <li> <a class="py-13 pt-15  mr-4 text-black" target="_blank"
-                            href="https://www.handsonlesco.com/cursos/">Cursos</a></li>
+                            <li><a class="no-underline text-black mr-4" target="_blank"
+                                    href="https://www.handsonlesco.com/">¿Quienés somos?</a></li>
+                            <li><a class="no-underline  text-black mr-4" target="_blank"
+                                    href="https://www.handsonlesco.com/blog/">Blog</a></li>
+                            <li><a class="no-underline  text-black mr-4" target="_blank"
+                                    href="https://www.handsonlesco.com/contactanos/">Contacto</a> </li>
+                            <li> <a class="py-13 pt-15  mr-4 text-black" target="_blank"
+                                    href="https://www.handsonlesco.com/cursos/">Cursos</a></li>
+                            @if (Auth::user())
+                                <li> <a href="{{ route('logout') }}" class="py-13 pt-15  mr-4 text-black" onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
+                                </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="hidden">
+                                    {{ csrf_field() }}
+                                </form>
+                            @endif
                         </ul>
                     </div>
                     <!-- Mobile menu button -->
@@ -49,24 +58,34 @@
                             </svg>
                         </button>
                     </div>
-                        <!-- mobile menu -->
-                        <div class="hidden mobile-menu">
-                            <ul class="">
-                                <li class="active"><a href="https://www.handsonlesco.com/"
-                                        class="block text-sm px-2 py-4 text-black hover:bg-blue-500 font-semibold">¿Quienés somos?</a>
+                    <!-- mobile menu -->
+                    <div class="hidden mobile-menu">
+                        <ul class="">
+                            <li class="active"><a href="https://www.handsonlesco.com/"
+                                    class="block text-sm px-2 py-4 text-black hover:bg-blue-500 transition duration-300">¿Quienés
+                                    somos?</a>
+                            </li>
+                            <li><a href="https://www.handsonlesco.com/blog/"
+                                    class="block text-sm px-2 py-4 text-black  hover:bg-blue-500 transition duration-300">Blog</a>
+                            </li>
+                            <li><a href="https://www.handsonlesco.com/contactanos/"
+                                    class="block text-sm px-2 py-4 text-black hover:bg-blue-500 transition duration-300">Contacto</a>
+                            </li>
+                            <li><a href="https://www.handsonlesco.com/cursos/"
+                                    class="block text-sm px-2 py-4 text-black hover:bg-blue-500 transition duration-300">Cursos
+                                </a></li>
+                            @if (Auth::user())
+                                <li> <a href="{{ route('logout') }}" class="block text-sm px-2 py-4 text-black  hover:bg-blue-500 transition duration-300" onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
                                 </li>
-                                <li><a href="https://www.handsonlesco.com/blog/"
-                                        class="block text-sm px-2 py-4 text-black  hover:bg-blue-500 transition duration-300">Blog</a>
-                                </li>
-                                <li><a href="https://www.handsonlesco.com/contactanos/"
-                                        class="block text-sm px-2 py-4 text-black hover:bg-blue-500 transition duration-300">Contacto</a>
-                                </li>
-                                <li><a href="https://www.handsonlesco.com/cursos/"
-                                        class="block text-sm px-2 py-4 text-black hover:bg-blue-500 transition duration-300">Cursos
-                                        Us</a></li>
-                            </ul>
-                        </div>
-                   
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="hidden">
+                                    {{ csrf_field() }}
+                                </form>
+                            @endif
+                        </ul>
+                    </div>
+
                 </nav>
             </div>
         </header>
@@ -82,4 +101,5 @@
         menu.classList.toggle("hidden");
     });
 </script>
+
 </html>

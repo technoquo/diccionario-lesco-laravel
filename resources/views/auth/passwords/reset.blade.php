@@ -21,7 +21,7 @@
                         </label>
 
                         <input id="email" type="email"
-                            class="form-input border-2 w-full @error('email') border-red-500 @enderror" name="email"
+                            class="form-input border-2 w-full rounded  @error('email') border-red-500 @enderror" name="email"
                             value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
@@ -37,7 +37,7 @@
                         </label>
 
                         <input id="password" type="password"
-                            class="form-input border-2 w-full @error('password') border-red-500 @enderror" name="password"
+                            class="form-input border-2 w-full rounded  @error('password') border-red-500 @enderror" name="password"
                             required autocomplete="new-password">
 
                         @error('password')
