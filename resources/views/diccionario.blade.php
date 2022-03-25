@@ -18,8 +18,12 @@
                             <label class="block">
                                 <span class="text-gray-700">Categoría</span>
                                 <select class="form-select block w-full mt-1 rounded">
-                                  <option>Option 1</option>
-                                  <option>Option 2</option>
+                                  <option value="0">Todas</option>  
+                                  @foreach ($categorias as $categoria)
+                                   @if ($categoria->estado == 'A')
+                                  <option value="{{ $categoria->cod_categoria }}"> {{ $categoria->categoria }}</option>                                 
+                                   @endif
+                                  @endforeach
                                 </select>
                               </label>
                         </div>                       

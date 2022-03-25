@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorias;
+
 use Illuminate\Http\Request;
 
 class DiccionarioController extends Controller
@@ -23,6 +25,13 @@ class DiccionarioController extends Controller
      */
     public function index()
     {
-        return view('diccionario');
+        
+        
+        $categorias = Categorias::orderBy('categoria', 'ASC')->get();
+  
+
+        
+         return view('diccionario', compact('categorias'));
+       
     }
 }
