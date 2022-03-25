@@ -26,6 +26,9 @@
                 </form>
                 <div class="pt-10"></div>           
             </div>
+            <div class="btn-toolbarx">
+              <div class="btn-group" role="group" aria-label="Grupo de Letras"></div>
+           </div>
             <div>fdasfsadf</div>
 
         </div>

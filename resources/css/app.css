@@ -8,6 +8,40 @@
     background-color: #E0EEF4;
 }
 
+.btn-group {
+    width: 100%; 
+    background-color: #29A9E1;
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    margin: auto;
+    margin-top: -14px;
+}
+
+
+.btn-group-vertical {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.btn-group > .seleccionar {
+    font-size: 16px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    padding: 1em;
+}
+
+.btn-group > .seleccionar:hover {
+    background: #1394CD;
+    color: #FFFFFF;
+}
+
+.btn-default {
+    color: white;
+   
+}
+
 @media (max-width: 1004px) {
 
     .movil {

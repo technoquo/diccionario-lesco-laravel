@@ -977,6 +977,10 @@ select {
   height: 1.5rem;
 }
 
+.h-5 {
+  height: 1.25rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -987,6 +991,10 @@ select {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-5 {
+  width: 1.25rem;
 }
 
 .flex-initial {
@@ -1311,6 +1319,39 @@ select {
     background-color: #E0EEF4;
 }
 
+.btn-group {
+    width: 100%; 
+    background-color: #29A9E1;
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    margin: auto;
+    margin-top: -14px;
+}
+
+.btn-group-vertical {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.btn-group > .seleccionar {
+    font-size: 16px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    padding: 1em;
+}
+
+.btn-group > .seleccionar:hover {
+    background: #1394CD;
+    color: #FFFFFF;
+}
+
+.btn-default {
+    color: white;
+   
+}
+
 @media (max-width: 1004px) {
 
     .movil {
@@ -1327,6 +1368,10 @@ select {
 .hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(26 86 219 / var(--tw-bg-opacity));
+}
+
+.hover\:fill-red-700:hover {
+  fill: #c81e1e;
 }
 
 .hover\:text-blue-700:hover {

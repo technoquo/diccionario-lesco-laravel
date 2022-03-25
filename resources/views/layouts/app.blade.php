@@ -12,9 +12,11 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/lesco.js') }}"></script>
 </head>
 
 <body class="h-screen antialiased leading-none font-sans">
@@ -38,6 +40,17 @@
                             <li> <a class="py-13 pt-15  mr-4 text-black" target="_blank"
                                     href="https://www.handsonlesco.com/cursos/">Cursos</a></li>
                             @if (Auth::user())
+                                <li>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5 fill-cyan-500 hover:fill-red-700 cursor-pointer"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </li>
                                 <li> <a href="{{ route('logout') }}" class="py-13 pt-15  mr-4 text-black" onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
                                 </li>
@@ -75,7 +88,9 @@
                                     class="block text-sm px-2 py-4 text-black hover:bg-blue-500 transition duration-300">Cursos
                                 </a></li>
                             @if (Auth::user())
-                                <li> <a href="{{ route('logout') }}" class="block text-sm px-2 py-4 text-black  hover:bg-blue-500 transition duration-300" onclick="event.preventDefault();
+                                <li> <a href="{{ route('logout') }}"
+                                        class="block text-sm px-2 py-4 text-black  hover:bg-blue-500 transition duration-300"
+                                        onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
                                 </li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
