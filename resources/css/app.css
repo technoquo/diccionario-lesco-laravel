@@ -42,6 +42,11 @@
    
 }
 
+.nombre_palabra {
+    position: relative;
+    top: 10px;
+}
+
 @media (max-width: 1004px) {
 
     .movil {

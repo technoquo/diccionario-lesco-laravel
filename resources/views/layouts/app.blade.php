@@ -17,6 +17,7 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/lesco.js') }}"></script>
+    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
 </head>
 
 <body class="h-screen antialiased leading-none font-sans">
@@ -24,9 +25,9 @@
         <header class="bg-white py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
-                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
-                        <img src="{{ asset('images/hands.png') }}" alt="Hands On">
-                    </a>
+
+                    <img src="{{ asset('images/hands.png') }}" alt="Hands On">
+
                 </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                     <div class="hidden md:flex items-center space-x-1">
