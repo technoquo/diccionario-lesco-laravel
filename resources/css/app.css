@@ -47,6 +47,16 @@
     top: 10px;
 }
 
+.modal{
+    cursor: pointer;
+}
+@media (max-width: 1278px) {
+
+    .btn-toolbarx {
+       display: none;
+    }
+  }
+
 
 
 @media (max-width: 1004px) {

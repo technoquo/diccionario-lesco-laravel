@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DiccionarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+ Route::get('/', function () {
+  return view('welcome');
+ });
 Auth::routes();
 
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('/diccionario',DiccionarioController::class);
+
+//Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/diccionario', [\App\Http\Controllers\DiccionarioController::class, 'index'])->name('diccionario')->middleware('auth');
 

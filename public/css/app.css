@@ -1114,6 +1114,18 @@ input[type=file]::file-selector-button:hover {
   background-color: currentColor;
 }
 
+.fixed {
+  position: fixed;
+}
+
+.top-40 {
+  top: 10rem;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1275,12 +1287,24 @@ input[type=file]::file-selector-button:hover {
   margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .break-words {
   overflow-wrap: break-word;
 }
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 .rounded-lg {
@@ -1319,6 +1343,11 @@ input[type=file]::file-selector-button:hover {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-blue-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(118 169 250 / var(--tw-bg-opacity));
+}
+
 .bg-green-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(222 247 236 / var(--tw-bg-opacity));
@@ -1346,16 +1375,6 @@ input[type=file]::file-selector-button:hover {
   padding: 0.75rem;
 }
 
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
@@ -1364,6 +1383,16 @@ input[type=file]::file-selector-button:hover {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .py-6 {
@@ -1442,12 +1471,12 @@ input[type=file]::file-selector-button:hover {
   line-height: 1.5rem;
 }
 
-.font-semibold {
-  font-weight: 600;
-}
-
 .font-bold {
   font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .uppercase {
@@ -1469,6 +1498,11 @@ input[type=file]::file-selector-button:hover {
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-green-700 {
@@ -1579,6 +1613,17 @@ input[type=file]::file-selector-button:hover {
     position: relative;
     top: 10px;
 }
+
+.modal{
+    cursor: pointer;
+}
+
+@media (max-width: 1278px) {
+
+    .btn-toolbarx {
+       display: none;
+    }
+  }
 
 @media (max-width: 1004px) {
 

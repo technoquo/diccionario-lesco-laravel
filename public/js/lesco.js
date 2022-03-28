@@ -2,9 +2,9 @@
 $( document ).ready(function() {
 
 $('.btn-group').html('');
-$('.btn-group').append('<button class="btn btn-default seleccionar" id=' + 0 + '>Todas</div>')
+$('.btn-group').append('<a class="mt-4 ml-2 uppercase text-white" href="/diccionario/todas">Todas</a>')
 for (var i = 65; i <= 90; i++) {
-    $('.btn-group').append('<button class="btn btn-default seleccionar" id=' + String.fromCharCode(i) + '>' + String.fromCharCode(i) + '</div>');
+    $('.btn-group').append('<a class="btn btn-default seleccionar" href="/diccionario/' + String.fromCharCode(i) + '">' + String.fromCharCode(i) + '</a>');
 }
 
 $(".modal").click(function() {
@@ -37,6 +37,48 @@ $(".modal").click(function() {
     $('.open-modal-'+ this.id).hide();
   
 });
+
+
+var x = 1;
+$('.modal').each(function(index, value) {
+
+    if (x <= 12) {        
+
+        if (this.id != "") { // el caso Favorito si esta vacio entonces omite .
+            $('#' + this.id).removeClass('hidden');
+
+        }
+    }
+    x++;
+});
+
+if (($('.modal').length == 0) || ($('.modal').length <= 12)) {
+          
+    $('#loadMore').hide(); 
+} else {
+
+    $('#loadMore').show();
+}
+
+
+$("#loadMore").on("click", function(e) {
+    e.preventDefault();
+    $(".estado_A:hidden").slice(0, 12).slideDown();
+       
+    if ($(".estado_A:hidden").length == 0) {
+        $("#loadMore").text("Sin contenido").addClass("noContent");
+    }
+});
+
+$(".seleccionar").click(function(argument) {
+
+    ResultadoLetra(this.id);
+
+});
+
+function ResultadoLetra(letra) {
+   console.log(letra);
+}
 
 });
 
