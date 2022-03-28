@@ -36,18 +36,23 @@
             </div>
             <div class="text-sky-500 dark:text-sky-400 text-2xl ml-10 mt-10" id="mostrarLetra">Todas ({{ $total }})
             </div>
+            
             <div class="flex flex-wrap justify-center">
                 @foreach ($senas as $sena)
                     @if ($sena->estado == 'A')
-                        <div class="p-8">                        
+                       <div class="modal" id="{{ $sena->id }}">
+                            <div class="p-8">
+                                <div class="hidden" id="video_{{ $sena->id }}">{{ $sena->video }}</div>
                                 <img src="http://img.youtube.com/vi/{{ $sena->video }}/mqdefault.jpg"
                                     alt="{{ $sena->palabra }} ">
                                 <div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8">
-                                    <div class="nombre_palabra">
+                                    <div class="nombre_palabra" id="nombre_palabra_{{ $sena->id }}">
                                         {{ $sena->palabra }}
                                     </div>
-                                </div>                            
+                                </div>
+                            </div>
                         </div>
+                        <div class="open-modal-{{ $sena->id }} overflow-y-auto overflow-x-hidden fixed top-40  z-50" tabindex="-1"></div>
                     @endif
                 @endforeach
             </div>
