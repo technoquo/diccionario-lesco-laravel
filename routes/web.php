@@ -18,9 +18,12 @@ use App\Http\Controllers\DiccionarioController;
  });
 Auth::routes();
 
-Route::resource('/diccionario',DiccionarioController::class);
+//Route::resource('/diccionario',DiccionarioController::class);
 
 //Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/diccionario', [\App\Http\Controllers\DiccionarioController::class, 'index'])->name('diccionario')->middleware('auth');
+Route::get('/diccionario', [DiccionarioController::class, 'index'])->name('diccionario')->middleware('auth');
 
+Route::post('/diccionario/MostrarLetra', [DiccionarioController::class, 'MostrarLetra']);
+
+Route::post('/diccionario/MostrarCategoria', [DiccionarioController::class, 'MostrarCategoria']);

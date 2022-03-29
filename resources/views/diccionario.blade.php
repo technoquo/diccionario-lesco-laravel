@@ -36,11 +36,11 @@
             </div>
             <div class="text-sky-500 dark:text-sky-400 text-2xl ml-10 mt-10" id="mostrarLetra">Todas ({{ $total }})
             </div>
-            
-            <div class="flex flex-wrap justify-center">
+
+            <div class="flex flex-wrap orden_letra justify-center">
                 @foreach ($senas as $sena)
                     @if ($sena->estado == 'A')
-                       <div class="modal hidden estado_{{ $sena->estado }}" id="{{ $sena->id }}">
+                        <div class="modal hidden estado_{{ $sena->estado }}" id="{{ $sena->id }}">
                             <div class="p-8">
                                 <div class="hidden" id="video_{{ $sena->id }}">{{ $sena->video }}</div>
                                 <img src="http://img.youtube.com/vi/{{ $sena->video }}/mqdefault.jpg"
@@ -52,13 +52,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="open-modal-{{ $sena->id }} overflow-y-auto overflow-x-hidden fixed top-40  z-50" tabindex="-1"></div>
+                        <div class="open-modal-{{ $sena->id }} overflow-y-auto overflow-x-hidden fixed top-40  z-50"
+                            tabindex="-1"></div>
                     @endif
-                @endforeach              
+                @endforeach
             </div>
+           
             <div class="flex justify-center">
-              <a href="#" class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-5 px-6 rounded-full" id="loadMore">Mostrar más</a>
+                <a href="#" class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-5 px-6 rounded-full"
+                    id="loadMore">Mostrar más</a>
             </div>
             <div class="pt-20"> </div>
         </div>
+        <script>
+     
+        </script>
     @endsection

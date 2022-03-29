@@ -37,23 +37,62 @@ class DiccionarioController extends Controller
     }
 
 
+    public function MostrarLetra(Request $request) 
+    {
+
+        
+
+        if ($request->letra != 'todas'){
+           
+            $arr['data'] = Senas::where('letra', '=', $request->letra)->where('estado', '=', 'A')->orderBy('palabra', 'ASC')->get();
+               
+    
+        } else {
+            $arr['data']  = Senas::orderBy('palabra', 'ASC')->get();  
+        }
+       
+       
+        echo json_encode($arr);
+        exit;
+     }
+        
+    
+
        /**
      * Display the specified resource.
      *
      * @param  string  $letra
      * @return \Illuminate\Http\Response
      */
-     public function show($letra) 
-    {
+    //  public function show($letra) 
+    // {
+       
 
-        if ($letra != 'todas'){
-        $senas = Senas::where('letra', '=', $letra)->orderBy('palabra', 'ASC')->get();
-        $categorias = Categorias::orderBy('categoria', 'ASC')->get();      
-        $total = Senas::where('letra', '=', $letra)->count();         
-        return view('show', ['categorias' => $categorias, 'senas' => $senas, 'total' => $total]);
-        } else {
-            return redirect('/diccionario');  
+    //     if ($letra != 'todas'){
+    //     $senas = Senas::where('letra', '=', $letra)->orderBy('palabra', 'ASC')->get();
+    //     $categorias = Categorias::orderBy('categoria', 'ASC')->get();      
+    //     $total = Senas::where('letra', '=', $letra)->count();         
+    //     return view('show', ['categorias' => $categorias, 'senas' => $senas, 'total' => $total]);
+    //     } else {
+    //         return redirect('/diccionario');  
+    //     }
+    // }
+
+
+
+    public function MostrarCategoria(Request $request){
+     
+         
+        if($request->cod_categoria==0){ 
+            $arr['data'] =Senas::orderBy('palabra', 'ASC')->get(); 
+        }else{   
+            $arr['data'] = Senas::where('cod_categoria', '=', $request->cod_categoria)->orderBy('palabra', 'ASC')->get();
         }
-    }
+   
+        echo json_encode($arr);
+        exit;
+     }
+
+   
  
 }

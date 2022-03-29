@@ -2,16 +2,16 @@
 $( document ).ready(function() {
 
 $('.btn-group').html('');
-$('.btn-group').append('<a class="mt-4 ml-2 uppercase text-white" href="/diccionario/todas">Todas</a>')
+$('.btn-group').append('<a class="mt-4 ml-2 uppercase text-white seleccionar" id="todas">Todas</a>')
 for (var i = 65; i <= 90; i++) {
-    $('.btn-group').append('<a class="btn btn-default seleccionar" href="/diccionario/' + String.fromCharCode(i) + '">' + String.fromCharCode(i) + '</a>');
+    $('.btn-group').append('<a class="btn btn-default seleccionar" id="'+String.fromCharCode(i) +'">' + String.fromCharCode(i) + '</a>');
 }
 
-$(".modal").click(function() {
+$(document).on("click", ".modal", function(event) {
     $( '.open-modal-'+ this.id).html('');
     $( '.open-modal-'+ this.id).show();
      var $modal =  '<div id="popup-modal">';
-         $modal =  '<div class="relative w-full">';
+         $modal +=  '<div class="relative w-full">';
          $modal += '<div class="relative bg-white rounded-lg shadow dark:bg-gray-700">';
          $modal += '<div class="flex justify-end p-2">';
          $modal += '<button id="'+ this.id +'" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white close" data-modal-toggle="popup-modal">';
@@ -70,15 +70,100 @@ $("#loadMore").on("click", function(e) {
     }
 });
 
-$(".seleccionar").click(function(argument) {
 
-    ResultadoLetra(this.id);
-
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
 });
 
-function ResultadoLetra(letra) {
-   console.log(letra);
-}
+var OrdenarPalabras = [];
+$(document).on("click", ".seleccionar", function(event) {
+    console.log(this.id);
+    event.preventDefault();
+            
+    
+    var list = "";
+    $.ajax({
+        method: "POST",
+        dataType: "json",
+        url: '/diccionario/MostrarLetra',
+        data: {
+            'letra': this.id
+        },
+        success: function(response) {
+            $(".orden_letra").html('');
+            $.each(response['data'], function(index, value) {
+                var Obj = {
+                    id: value.id,
+                    palabra: value.palabra,
+                    video: value.video,
+                    estado: value.estado,
+                    
+
+                }
+
+                OrdenarPalabras.push(Obj);
+
+
+            });
+ 
+            $.each(OrdenarPalabras, function(index, value) {
+                if (value.video !='') {
+                    list +='<div class="modal  estado_'+ value.estado +'" id="'+ value.id +'">';
+                    list +='   <div class="p-8">';
+                    list +='          <div class="hidden" id="video_'+ value.id +'">'+ value.video +'</div>';
+                    list +='                <img src="http://img.youtube.com/vi/'+ value.video +'/mqdefault.jpg" alt="'+ value.palabra +'">';                                  
+                    list +='                  <div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8">';
+                    list +='                    <div class="nombre_palabra" id="nombre_palabra_'+ value.id +'">'+ value.palabra + '</div>';                 
+                    list +='          </div>';
+                    list +='    </div>';
+                    list +='</div>';
+                    list +='<div class="open-modal-'+ value.id +' overflow-y-auto overflow-x-hidden fixed top-40  z-50" tabindex="-1"></div>';
+                }
+            });
+            
+              
+            $(".orden_letra").append(list);
+             
+
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+
+});
+ // var CSRF_TOKEN = $('meta[name="csrf_token"]').attr('content');
+
+      $(".form-select").change(function(event){
+          
+                event.preventDefault();
+
+
+            
+                $.ajax({
+                    url: '/diccionario/MostrarCategoria',              
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        'cod_categoria': $(".form-select").val()
+                    },
+                    success: function(response){
+                        $.each(response['data'], function(i, item) {
+                            console.log(item);
+                        });
+                    
+                    
+                    },
+                    error: function(error) {
+                    console.log(error);
+                    }
+                });
+
+            });
+         
 
 });
 

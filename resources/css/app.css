@@ -57,7 +57,10 @@
     }
   }
 
-
+  .text-sky-500 {
+    --tw-text-opacity: 1;
+    color: rgb(14 165 233 / var(--tw-text-opacity));
+}
 
 @media (max-width: 1004px) {
 
