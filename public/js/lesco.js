@@ -200,14 +200,31 @@ $(document).on("click", ".seleccionar", function(event) {
         
                 $(".modal").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    if (value == "") {                     
-        
-                        $('#loadMore').show();
-        
-                    } else {
-        
-                        $('#loadMore').hide();
-                    }
+                    if (value == "") {
+
+                    var x = 1;
+                    $('.estado_A').each(function(index, value) {
+    
+                        if (x <= 12) {
+    
+    
+                            if (this.id != "") { // el caso Favorito si esta vacio entonces omite .
+                                $('#' + this.id).removeClass('hidden');
+    
+                            }
+                        } else {
+                            $('#' + this.id).attr("style", "none");
+                        }
+    
+                        x++;
+                    });
+    
+                    $('#loadMore').show();
+    
+                } else {
+    
+                    $('#loadMore').hide();
+                }
                     //BuscarSena($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1));
                 });
         
@@ -223,7 +240,7 @@ function BottonMostrar() {
           
         $('#loadMore').hide(); 
     } else {
-    
+        
         $('#loadMore').show();
     }
 }
@@ -231,7 +248,7 @@ function BottonMostrar() {
 function MostrarSenasMinimo(){
     var x = 1;
     $('.modal').each(function(index, value) {
-    
+  
         if (x <= 12) {        
     
             if (this.id != "") { // el caso Favorito si esta vacio entonces omite .
