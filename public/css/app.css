@@ -1363,6 +1363,11 @@ input[type=file]::file-selector-button:hover {
   background-color: rgb(63 131 248 / var(--tw-bg-opacity));
 }
 
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 36 36 / var(--tw-bg-opacity));
+}
+
 .p-8 {
   padding: 2rem;
 }
@@ -1628,6 +1633,17 @@ input[type=file]::file-selector-button:hover {
 .text-sky-500 {
     --tw-text-opacity: 1;
     color: rgb(14 165 233 / var(--tw-text-opacity));
+}
+
+.bg-red-600 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+
+.equis {
+    position: relative;
+    top: 10px;
+    left: -20px;
 }
 
 @media (max-width: 1004px) {
