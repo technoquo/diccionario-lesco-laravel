@@ -104,6 +104,30 @@ class DiccionarioController extends Controller
     }
 
 
+    public function SenaFavoritaUsuario(Request $request){
+
+         
+        $arr['data'] = SenasFavoritas::where('id_sena', '=', $request->id_sena)->where('email', '=', auth()->user()->email)->get();
+         
+
+        echo json_encode($arr);
+        exit;
+    }
+
+
+    public function CorazonFavorito(){
+
+         
+        $arr['data'] = SenasFavoritas::where('email', '=', auth()->user()->email)->get();
+         
+
+        echo json_encode($arr);
+        exit;
+    }
+
+    
+
+
    
  
 }

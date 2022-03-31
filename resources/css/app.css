@@ -73,8 +73,16 @@
     left: -20px;
 }
 
+.ico_heart_favorito {
+    margin-top: 10px;
+    position: absolute;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
 img.heart {
-    background-image: url(/public/images/hands.png);
+    background-image: url(/images/heart-fill.png);
     display: block;
     width: 0px;
     height: 0px;
@@ -85,7 +93,7 @@ img.heart {
 }
 
 img.heart-fill {
-    background-image: url(/public/images/heart-fill.png);
+    background-image: url(/images/heart.png);
     display: block;
     width: 20px !important;
     height: 20px !important;

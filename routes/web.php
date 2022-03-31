@@ -31,3 +31,7 @@ Route::post('/diccionario/MostrarCategoria', [DiccionarioController::class, 'Mos
 Route::post('/diccionario/AgregarSenaFavorita', [DiccionarioController::class, 'AgregarSenaFavorita']);
 
 Route::post('/diccionario/QuitarSenaFavorita', [DiccionarioController::class, 'QuitarSenaFavorita']);
+
+Route::post('/diccionario/SenaFavoritaUsuario', [DiccionarioController::class, 'SenaFavoritaUsuario']);
+
+Route::post('/diccionario/CorazonFavorito', [DiccionarioController::class, 'CorazonFavorito']);
