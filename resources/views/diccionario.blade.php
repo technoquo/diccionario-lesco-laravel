@@ -43,6 +43,7 @@
                         <div class="modal hidden estado_{{ $sena->estado }}" id="{{ $sena->id }}">
                             <div class="p-8">
                                 <div class="hidden" id="video_{{ $sena->id }}">{{ $sena->video }}</div>
+                                <img class="mostrar_{{ $sena->id }}  card-img-left ico_heart heart-fill eliminar" id="{{ $sena->id }}">
                                 <img src="http://img.youtube.com/vi/{{ $sena->video }}/mqdefault.jpg"
                                     alt="{{ $sena->palabra }} ">
                                 <div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8">

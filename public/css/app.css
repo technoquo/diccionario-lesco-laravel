@@ -1565,6 +1565,10 @@ input[type=file]::file-selector-button:hover {
   outline-offset: 2px;
 }
 
+.outline {
+  outline-style: solid;
+}
+
 .transition {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1644,6 +1648,28 @@ input[type=file]::file-selector-button:hover {
     position: relative;
     top: 10px;
     left: -20px;
+}
+
+img.heart {
+    background-image: url(/public/images/hands.png);
+    display: block;
+    width: 0px;
+    height: 0px;
+    outline: none;
+    padding: 43px 51px 43px 51px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+img.heart-fill {
+    background-image: url(/public/images/heart-fill.png);
+    display: block;
+    width: 20px !important;
+    height: 20px !important;
+    outline: none;
+    padding: 43px 51px 43px 51px;
+    background-repeat: no-repeat;
+    background-size: 20px;
 }
 
 @media (max-width: 1004px) {
@@ -1857,6 +1883,12 @@ input[type=file]::file-selector-button:hover {
   .sm\:shadow-lg {
     --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .sm\:shadow-2xl {
+    --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 }

@@ -27,3 +27,7 @@ Route::get('/diccionario', [DiccionarioController::class, 'index'])->name('dicci
 Route::post('/diccionario/MostrarLetra', [DiccionarioController::class, 'MostrarLetra']);
 
 Route::post('/diccionario/MostrarCategoria', [DiccionarioController::class, 'MostrarCategoria']);
+
+Route::post('/diccionario/AgregarSenaFavorita', [DiccionarioController::class, 'AgregarSenaFavorita']);
+
+Route::post('/diccionario/QuitarSenaFavorita', [DiccionarioController::class, 'QuitarSenaFavorita']);

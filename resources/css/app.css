@@ -73,6 +73,27 @@
     left: -20px;
 }
 
+img.heart {
+    background-image: url(/public/images/hands.png);
+    display: block;
+    width: 0px;
+    height: 0px;
+    outline: none;
+    padding: 43px 51px 43px 51px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+img.heart-fill {
+    background-image: url(/public/images/heart-fill.png);
+    display: block;
+    width: 20px !important;
+    height: 20px !important;
+    outline: none;
+    padding: 43px 51px 43px 51px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
 @media (max-width: 1004px) {
 
     .movil {

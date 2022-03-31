@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorias;
 use App\Models\Senas;
+use App\Models\SenasFavoritas;
 use Illuminate\Http\Request;
 
 class DiccionarioController extends Controller
@@ -74,6 +75,34 @@ class DiccionarioController extends Controller
         echo json_encode($arr);
         exit;
      }
+
+     public function AgregarSenaFavorita(Request $request){
+     
+       
+
+         SenasFavoritas::create([
+            'id_sena' => $request->id,           
+            'email'  => auth()->user()->email,
+            
+        ]);
+           
+        $data = array('message'=>'success','id' => $request->id);
+        
+
+        echo json_encode($data);
+     }
+
+     public function QuitarSenaFavorita(Request $request){
+     
+       
+
+        $sena = SenasFavoritas::where('id_sena', '=', $request->id)->where('email', '=', auth()->user()->email);
+        $sena->delete();
+
+        $data = array('message'=>'success','id' => $request->id);
+       echo json_encode($data);
+    }
+
 
    
  
