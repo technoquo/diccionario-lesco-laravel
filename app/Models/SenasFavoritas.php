@@ -9,11 +9,10 @@ class SenasFavoritas extends Model
 {
     use HasFactory;
 
-    protected $table = "senas_favoritas";
-    
-    protected $primaryKey = 'id';
+    public $timestamps = false;
 
-    public $timestamps = true;
+    protected $fillable = ['id_user','id_sena'];
 
-    protected $fillable = ['email','id_sena'];
+   
+
 }

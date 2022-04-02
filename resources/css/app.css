@@ -4,6 +4,9 @@
 
 @import "tailwindcss/utilities";
 
+.inicio {
+    cursor: pointer;
+}
 .fondo-diccionario {
     background-color: #E0EEF4;
 }
@@ -92,6 +95,9 @@ img.heart {
     background-size: 20px;
 }
 
+ul.flex > li {
+  margin: 1em;
+}
 img.heart-fill {
     background-image: url(/images/heart.png);
     display: block;

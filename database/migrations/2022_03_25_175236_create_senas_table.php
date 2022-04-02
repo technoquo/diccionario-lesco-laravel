@@ -14,15 +14,7 @@ class CreateSenasTable extends Migration
     public function up()
     {
         
-        Schema::create('categorias', function (Blueprint $table) {
-            $table->increments('cod_categoria');
-            $table->string('categoria');
-            $table->char('estado');
-            $table->timestamps();
-        });
-        
-        
-        Schema::create('senas', function (Blueprint $table) {
+     Schema::create('senas', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('cod_categoria');
             $table->string('palabra');  

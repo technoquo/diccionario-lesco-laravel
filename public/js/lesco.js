@@ -1,6 +1,13 @@
 
 $( document ).ready(function() {
 
+
+    $(document).on("click", ".inicio", function(event) {
+
+       window.location.href = '/diccionario';
+
+    });
+
 $('.btn-group').html('');
 $('.btn-group').append('<a class="ml-2 uppercase text-white seleccionar" id="todas">Todas</a>')
 for (var i = 65; i <= 90; i++) {
@@ -8,6 +15,7 @@ for (var i = 65; i <= 90; i++) {
 }
 
 $(document).on("click", ".modal", function(event) {
+    
     SenaFavoritaUsuario(this.id);
     $( '.open-modal-'+ this.id).html('');
     $( '.open-modal-'+ this.id).show();
@@ -334,9 +342,11 @@ function MostrarSenasMinimo(){
         dataType: "json",  
         data: {'id_sena': id },            
         success: function(response){      
-              
+           
+             if (jQuery.isEmptyObject(response['data']) == false){
+             
                $('.agregarsenafavorita_'+ response['data'][0]['id_sena']).removeClass('bg-red-600 hover:bg-red-800').removeClass('agregarsenafavorita').addClass('bg-gray-400  quitarsenafavorita').text('Quitar tu seña favorita');
-               
+            }
         },
         error: function(error) {
         console.log(error);
@@ -353,6 +363,7 @@ function CorazonFavorito(){
         method: "POST",
         dataType: "json",                
         success: function(response){      
+          
             $(response['data']).each(function(index, value) {          
                $('.mostrar_'+ value.id_sena).removeClass('heart-fill').addClass('heart');
             });

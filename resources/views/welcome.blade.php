@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if (Auth::user())
+<script>
+    window.location = "/diccionario";
+  </script>
+@endif
 <main class="sm:container sm:mx-auto sm:max-w-lg sm:mt-10">
     <div class="flex">
         <div class="w-full">

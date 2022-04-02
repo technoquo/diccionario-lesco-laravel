@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DiccionarioController;
+use App\Http\Controllers\SenasFavoritasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +36,6 @@ Route::post('/diccionario/QuitarSenaFavorita', [DiccionarioController::class, 'Q
 Route::post('/diccionario/SenaFavoritaUsuario', [DiccionarioController::class, 'SenaFavoritaUsuario']);
 
 Route::post('/diccionario/CorazonFavorito', [DiccionarioController::class, 'CorazonFavorito']);
+
+
+Route::get('/senasfavoritas', [SenasFavoritasController::class, 'index'])->name('senasfavoritas')->middleware('auth');

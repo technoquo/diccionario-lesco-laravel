@@ -81,8 +81,9 @@ class DiccionarioController extends Controller
        
 
          SenasFavoritas::create([
+            'id_user'  => auth()->user()->id,
             'id_sena' => $request->id,           
-            'email'  => auth()->user()->email,
+            
             
         ]);
            
@@ -96,7 +97,7 @@ class DiccionarioController extends Controller
      
        
 
-        $sena = SenasFavoritas::where('id_sena', '=', $request->id)->where('email', '=', auth()->user()->email);
+        $sena = SenasFavoritas::where('id_sena', '=', $request->id)->where('id_user', '=', auth()->user()->id);
         $sena->delete();
 
         $data = array('message'=>'success','id' => $request->id);
@@ -107,7 +108,7 @@ class DiccionarioController extends Controller
     public function SenaFavoritaUsuario(Request $request){
 
          
-        $arr['data'] = SenasFavoritas::where('id_sena', '=', $request->id_sena)->where('email', '=', auth()->user()->email)->get();
+        $arr['data'] = SenasFavoritas::where('id_sena', '=', $request->id_sena)->where('id_user', '=', auth()->user()->id)->get();
          
 
         echo json_encode($arr);
@@ -118,7 +119,7 @@ class DiccionarioController extends Controller
     public function CorazonFavorito(){
 
          
-        $arr['data'] = SenasFavoritas::where('email', '=', auth()->user()->email)->get();
+        $arr['data'] = SenasFavoritas::where('id_user', '=', auth()->user()->id)->get();
          
 
         echo json_encode($arr);

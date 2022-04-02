@@ -1581,6 +1581,10 @@ input[type=file]::file-selector-button:hover {
   transition-duration: 300ms;
 }
 
+.inicio {
+    cursor: pointer;
+}
+
 .fondo-diccionario {
     background-color: #E0EEF4;
 }
@@ -1668,6 +1672,10 @@ img.heart {
     background-size: 20px;
 }
 
+ul.flex > li {
+  margin: 1em;
+}
+
 img.heart-fill {
     background-image: url(/images/heart.png);
     display: block;
@@ -1704,6 +1712,11 @@ img.heart-fill {
 .hover\:text-blue-700:hover {
   --tw-text-opacity: 1;
   color: rgb(26 86 219 / var(--tw-text-opacity));
+}
+
+.hover\:text-red-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(240 82 82 / var(--tw-text-opacity));
 }
 
 .hover\:text-blue-500:hover {
