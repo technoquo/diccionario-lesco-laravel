@@ -43,7 +43,9 @@ $(document).on("click", ".modal", function(event) {
 
 
   $(document).on('click','.close',function(){
+   
     $('.open-modal-'+ this.id).hide();
+  
   
 });
 
@@ -266,6 +268,8 @@ $(document).on("click", ".seleccionar", function(event) {
 
             });
 
+            
+
             $(document).on("click", ".quitarsenafavorita", function(event) {
 
               
@@ -280,6 +284,8 @@ $(document).on("click", ".seleccionar", function(event) {
                     success: function(response){
                        
                     if (response['message']=='success') {
+
+                       $('.favorito_'+ +response['id']).fadeOut();
                        $('.agregarsenafavorita_'+response['id']).removeClass('bg-gray-400  quitarsenafavorita').addClass('agregarsenafavorita').addClass('bg-red-600 hover:bg-red-800').text('Añadir tu seña favorita');
                        $('.mostrar_'+ response['id']).removeClass('heart').addClass('heart-fill');
                      }
@@ -291,8 +297,61 @@ $(document).on("click", ".seleccionar", function(event) {
 
             });
 
+            
+            $(document).on("click", ".agregarcorazonfavorito", function(event) {
 
-         
+             
+               
+                $.ajax({
+                     url: '/diccionario/AgregarSenaFavorita',              
+                     method: "POST",
+                     dataType: "json",
+                     data: {
+                         'id': this.id
+                     },
+                     success: function(response){
+                      
+                    if (response['message']=='success') {    
+
+                       $('.agregarsenafavorita_'+response['id']).removeClass('bg-red-600 hover:bg-red-800').removeClass('agregarsenafavorita').addClass('bg-gray-400  quitarsenafavorita').text('Quitar tu seña favorita');
+                       $('.mostrar_'+ response['id']).removeClass('heart-fill agregarcorazonfavorito').addClass('heart quitarcorazonfavorito'); 
+                       }
+                     },
+                     error: function(error) {
+                     console.log(error);
+                     }
+                 });
+ 
+             });
+
+
+             $(document).on("click", ".quitarcorazonfavorito", function(event) {
+
+              
+              
+                $.ajax({
+                    url: '/diccionario/QuitarSenaFavorita',              
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        'id': this.id
+                    },
+                    success: function(response){
+                       
+                    if (response['message']=='success') {
+
+       
+                       $('.agregarsenafavorita_'+response['id']).removeClass('bg-gray-400  quitarsenafavorita').addClass('agregarsenafavorita').addClass('bg-red-600 hover:bg-red-800').text('Añadir tu seña favorita');
+                       $('.mostrar_'+ response['id']).removeClass('heart').addClass('heart-fill');
+                     }
+                    },
+                    error: function(error) {
+                    console.log(error);
+                    }
+                });
+
+            });
+            
 
 
             // GLOBAL

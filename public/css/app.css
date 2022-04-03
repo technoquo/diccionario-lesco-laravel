@@ -1448,6 +1448,10 @@ input[type=file]::file-selector-button:hover {
   padding-bottom: 2rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1629,6 +1633,21 @@ input[type=file]::file-selector-button:hover {
 
 .modal{
     cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    
+    
+}
+
+img.flecha {
+    width: 29px;
+    height:29px;
+    position: relative;
+    top: -2px;
+    left: 3px;
 }
 
 @media (max-width: 1278px) {
@@ -1655,10 +1674,11 @@ input[type=file]::file-selector-button:hover {
 }
 
 .ico_heart_favorito {
-    margin-top: 10px;
-    position: absolute;
+    top: 6em;
+    position: relative;
     margin-left: 10px;
     cursor: pointer;
+    z-index: 20;
 }
 
 img.heart {
