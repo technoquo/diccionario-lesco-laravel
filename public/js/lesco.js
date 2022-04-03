@@ -107,14 +107,14 @@ $(document).on("click", ".seleccionar", function(event) {
             $.each(OrdenarPalabras, function(index, value) {
           
                 if (value.estado =='A') {
-                    list +='<div class="modal hidden  estado_'+ value.estado +'" id="'+ value.id +'">';
-                    list +='   <div class="p-8">';
+                    list +='<div class="p-8 card hidden estado_'+ value.estado +'" id="'+ value.id +'">';
                     list +='          <div class="hidden" id="video_'+ value.id +'">'+ value.video +'</div>';
                     list +='             <img class="mostrar_'+ value.id +'  card-img-left ico_heart_favorito heart-fill" id="'+ value.id +'">'
+                    list +='    <div class="modal" id="'+ value.id +'">';
                     list +='                <img src="http://img.youtube.com/vi/'+ value.video +'/mqdefault.jpg" alt="'+ value.palabra +'">';                                  
                     list +='                  <div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8">';
                     list +='                    <div class="nombre_palabra" id="nombre_palabra_'+ value.id +'">'+ value.palabra + '</div>';                 
-                    list +='          </div>';
+                    list +='                  </div>';
                     list +='    </div>';
                     list +='</div>';
                     list +='<div class="open-modal-'+ value.id +' overflow-y-auto overflow-x-hidden fixed top-40  z-50" tabindex="-1"></div>';
@@ -123,7 +123,7 @@ $(document).on("click", ".seleccionar", function(event) {
             
             
             $(".orden_letra").append(list);
-            $('#mostrarLetra').html('Todas (' + $('.modal').length + ')');   
+            $('#mostrarLetra').html('Todas (' + $('.card').length + ')');   
             $("#loadMore").text("Mostrar más");  
             
             BottonMostrar();
@@ -176,14 +176,15 @@ $(document).on("click", ".seleccionar", function(event) {
                         $.each(OrdenarPalabras, function(index, value) {
                                 
                             if (value.estado =='A') {
-                                list +='<div class="modal hidden  estado_'+ value.estado +'" id="'+ value.id +'">';
-                                list +='   <div class="p-8">';
+                               
+                                list +='<div class="p-8 card hidden estado_'+ value.estado +'" id="'+ value.id +'">';
                                 list +='          <div class="hidden" id="video_'+ value.id +'">'+ value.video +'</div>';
                                 list +='             <img class="mostrar_'+ value.id +'  card-img-left ico_heart_favorito heart-fill" id="'+ value.id +'">'
+                                list +='    <div class="modal" id="'+ value.id +'">';
                                 list +='                <img src="http://img.youtube.com/vi/'+ value.video +'/mqdefault.jpg" alt="'+ value.palabra +'">';                                  
                                 list +='                  <div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8">';
                                 list +='                    <div class="nombre_palabra" id="nombre_palabra_'+ value.id +'">'+ value.palabra + '</div>';                 
-                                list +='          </div>';
+                                list +='                  </div>';
                                 list +='    </div>';
                                 list +='</div>';
                                 list +='<div class="open-modal-'+ value.id +' overflow-y-auto overflow-x-hidden fixed top-40  z-50" tabindex="-1"></div>';
@@ -192,7 +193,7 @@ $(document).on("click", ".seleccionar", function(event) {
                         
                           
                         $(".orden_letra").append(list);
-                        $('#mostrarLetra').html('Todas (' + $('.modal').length + ')');         
+                        $('#mostrarLetra').html('Todas (' + $('.card').length + ')');         
                         BottonMostrar();
                         MostrarSenasMinimo();
                         CorazonFavorito();
@@ -210,7 +211,7 @@ $(document).on("click", ".seleccionar", function(event) {
                 var value = $(this).val().toLowerCase();
         
         
-                $(".modal").filter(function() {
+                $(".card").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                     if (value == "") {
 
@@ -365,7 +366,7 @@ $(document).on("click", ".seleccionar", function(event) {
 
 function BottonMostrar() {
     
-    if (($('.modal').length == 0) || ($('.modal').length <= 12)) {
+    if (($('.card').length == 0) || ($('.card').length <= 12)) {
           
         $('#loadMore').hide(); 
     } else {
@@ -376,7 +377,7 @@ function BottonMostrar() {
 
 function MostrarSenasMinimo(){
     var x = 1;
-    $('.modal').each(function(index, value) {
+    $('.card').each(function(index, value) {
           
         if (x <= 12) {        
     

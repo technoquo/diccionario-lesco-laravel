@@ -15,7 +15,7 @@
             <div class="flex flex-wrap orden_letra justify-center">
                 @foreach ($favoritos as $sena)
                     @if ($sena->estado == 'A')
-                        <div class="p-8 favorito_{{ $sena->id }}">
+                        <div class="p-8 favorito_{{ $sena->id }} card  estado_{{ $sena->estado }}" id="{{ $sena->id }}">
                             <div class="hidden" id="video_{{ $sena->id }}">{{ $sena->video }}</div>
                             <img class="mostrar_{{ $sena->id }}  card-img-left ico_heart_favorito heart-fill quitarsenafavorita"
                                 id="{{ $sena->id }}">

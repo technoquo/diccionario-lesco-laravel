@@ -40,11 +40,11 @@
             <div class="flex flex-wrap orden_letra justify-center">
                 @foreach ($senas as $sena)
                     @if ($sena->estado == 'A')
-                    <div class="p-8">
+                    <div class="p-8 card  estado_{{ $sena->estado }}" id="{{ $sena->id }}">
                         <div class="hidden" id="video_{{ $sena->id }}">{{ $sena->video }}</div>
                         <img class="mostrar_{{ $sena->id }}  card-img-left ico_heart_favorito heart-fill agregarcorazonfavorito"
                             id="{{ $sena->id }}">
-                        <div class="modal  estado_{{ $sena->estado }}" id="{{ $sena->id }}">
+                        <div class="modal" id="{{ $sena->id }}">
                             <img src="http://img.youtube.com/vi/{{ $sena->video }}/mqdefault.jpg"
                                 alt="{{ $sena->palabra }} ">
                             <div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8">
