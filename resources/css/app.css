@@ -127,6 +127,17 @@ img.heart-fill {
     background-repeat: no-repeat;
     background-size: 20px;
 }
+
+img.delete {
+    background-image: url(/images/remove.png);
+    display: block;
+    width: 20px !important;
+    height: 20px !important;
+    outline: none;
+    padding: 43px 51px 43px 51px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
 @media (max-width: 1004px) {
 
     .movil {

@@ -8,7 +8,7 @@
             <div class="text-left"><a href="{{ route('diccionario') }}"><img class="flecha cursor-pointer"
                         src="{{ asset('images/flecha_roja.png') }}" alt="Volver al incio" title="Volver al incio"></a>
             </div>
-            <div class="text-sky-500 dark:text-sky-400 text-2xl ml-10 mt-10" id="mostrarLetra">Tus señas favoritos
+            <div class="text-sky-500 dark:text-sky-400 text-2xl ml-10 mt-10" id="cantidadLetra">Tus señas favoritos
                 ({{ $total_favoritos }})
             </div>
 
@@ -17,7 +17,7 @@
                     @if ($sena->estado == 'A')
                         <div class="p-8 favorito_{{ $sena->id }} card  estado_{{ $sena->estado }}" id="{{ $sena->id }}">
                             <div class="hidden" id="video_{{ $sena->id }}">{{ $sena->video }}</div>
-                            <img class="mostrar_{{ $sena->id }}  card-img-left ico_heart_favorito heart-fill quitarsenafavorita"
+                            <img class="mostrar_{{ $sena->id }}  card-img-left ico_heart_favorito delete quitarsenafavorita"
                                 id="{{ $sena->id }}">
                             <div class="modal  estado_{{ $sena->estado }}" id="{{ $sena->id }}">
                                 <img src="http://img.youtube.com/vi/{{ $sena->video }}/mqdefault.jpg"
