@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DiccionarioController;
 use App\Http\Controllers\SenasFavoritasController;
+use App\Http\Controllers\ListaSenasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +40,7 @@ Route::post('/diccionario/CorazonFavorito', [DiccionarioController::class, 'Cora
 
 
 Route::get('/senasfavoritas', [SenasFavoritasController::class, 'index'])->name('senasfavoritas')->middleware('auth');
+
+Route::get('/listasenas', [ListaSenasController::class, 'index'])->name('listasenas')->middleware('auth');
+
+Route::post('/listasenas/MostrarLetra', [ListaSenasController::class, 'MostrarLetra']);

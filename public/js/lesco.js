@@ -72,7 +72,15 @@ $.ajaxSetup({
 
 $(document).on("click", ".seleccionar", function(event) {
     
-    
+   console.log((this.id) + '-'+ $(".form-select").val());
+     var url;
+    if ($('input[name=tipo').val() == 'mosaico'){
+         url = '/diccionario/MostrarLetra';        
+    } else {
+         url = '/listasenas/MostrarLetra';
+    }
+
+    console.log(url);
     event.preventDefault();
     var OrdenarPalabras = [];
     $(".orden_letra").html('');
@@ -81,13 +89,13 @@ $(document).on("click", ".seleccionar", function(event) {
     $.ajax({
         method: "POST",
         dataType: "json",
-        url: '/diccionario/MostrarLetra',
+        url: url,
         data: {
             'letra': this.id,
             'cod_categoria': $(".form-select").val()
         },
         success: function(response) {
-            $(".orden_letra").append(list);
+           console.log(response['data']);
             $.each(response['data'], function(index, value) {
                 
                 var Obj = {
@@ -103,7 +111,7 @@ $(document).on("click", ".seleccionar", function(event) {
 
 
             });
- 
+            if ($('input[name=tipo').val() == 'mosaico'){
             $.each(OrdenarPalabras, function(index, value) {
           
                 if (value.estado =='A') {
@@ -120,15 +128,30 @@ $(document).on("click", ".seleccionar", function(event) {
                     list +='<div class="open-modal-'+ value.id +' overflow-y-auto overflow-x-hidden fixed top-40  z-50" tabindex="-1"></div>';
                 }
             });
-            
-            
+                  
             $(".orden_letra").append(list);
             $('#mostrarLetra').html('Todas (' + $('.card').length + ')');   
-            $("#loadMore").text("Mostrar más");  
-            
+            $("#loadMore").text("Mostrar más");
+
             BottonMostrar();
             MostrarSenasMinimo();
             CorazonFavorito();
+
+            } else {
+                $.each(OrdenarPalabras, function(index, value) {
+                 
+                if (value.estado =='A') {
+                    list +='<option value="'+ value.id +'">'+ value.palabra +'</option>';
+                
+                }
+            });
+            $(".orden_letra").append(list);
+            }
+            
+          
+            
+           
+    
         },
         error: function(error) {
             console.log(error);

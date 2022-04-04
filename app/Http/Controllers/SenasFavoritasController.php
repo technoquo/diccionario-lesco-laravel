@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Senas;
 use App\Models\SenasFavoritas;
+
 class SenasFavoritasController extends Controller
 
 {
