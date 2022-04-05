@@ -138,10 +138,11 @@ $(document).on("click", ".seleccionar", function(event) {
             CorazonFavorito();
 
             } else {
+                $(".orden_letra").html('');
                 $.each(OrdenarPalabras, function(index, value) {
                  
                 if (value.estado =='A') {
-                    list +='<option value="'+ value.id +'" class="w-56 count">'+ value.palabra +'</option>';
+                    list +='<option value="'+ value.id +'" class="w-56 count uppercase">'+ value.palabra +'</option>';
                 
                 }
             });
@@ -168,7 +169,7 @@ $(document).on("click", ".seleccionar", function(event) {
 
       $(".form-select").change(function(event){
           
-                event.preventDefault();S               
+                event.preventDefault();            
                 var OrdenarPalabras = [];
                 $(".orden_letra").html('');
                 var list = "";
@@ -229,7 +230,7 @@ $(document).on("click", ".seleccionar", function(event) {
                         $.each(OrdenarPalabras, function(index, value) {
                         
                         if (value.estado =='A') {
-                            list +='<option value="'+ value.id +'" class="w-56 count">'+ value.palabra +'</option>';
+                            list +='<option value="'+ value.id +'" class="w-56 count uppercase">'+ value.palabra +'</option>';
                         
                         }
                     });
@@ -285,7 +286,7 @@ $(document).on("click", ".seleccionar", function(event) {
             $(document).on("click", ".agregarsenafavorita", function(event) {
 
              
-               
+                event.preventDefault();            
                $.ajax({
                     url: '/diccionario/AgregarSenaFavorita',              
                     method: "POST",
@@ -316,7 +317,7 @@ $(document).on("click", ".seleccionar", function(event) {
 
             
             $(document).on("click", ".agregarcorazonfavorito", function(event) {
-
+                event.preventDefault();            
              
                
                 $.ajax({
@@ -345,7 +346,7 @@ $(document).on("click", ".seleccionar", function(event) {
 
              $(document).on("click", ".quitarsena", function(event) {
 
-              console.log('dafdas');
+                event.preventDefault();            
               
                 $.ajax({
                     url: '/diccionario/QuitarSenaFavorita',              
@@ -374,7 +375,7 @@ $(document).on("click", ".seleccionar", function(event) {
 
             $(document).on("click", ".quitarsenafavorita", function(event) {
 
-              
+                event.preventDefault();            
               
                 $.ajax({
                     url: '/diccionario/QuitarSenaFavorita',              
@@ -399,6 +400,36 @@ $(document).on("click", ".seleccionar", function(event) {
                 });
 
             });
+
+
+            $(document).on("click", ".scrollable-element", function(event) {
+           
+                //event.preventDefault();            
+                $('.videoWrapper').html('');
+                var video;
+               
+                $.ajax({
+                     url: '/diccionario/MostrarVideo',              
+                     method: "POST",
+                     dataType: "json",
+                     data: {
+                         'id': $(".scrollable-element").val()
+                     },
+                     success: function(response){
+                        
+                    
+                       video = '<iframe width="560" height="349" src="http://www.youtube.com/embed/' + response['data'][0].video + '" frameborder="0" allowfullscreen></iframe>';
+                       
+                       $('.videoWrapper').append(video);
+                        
+                     },
+                     error: function(error) {
+                     console.log(error);
+                     }
+                 });
+                 
+             });
+
 
 
             // GLOBAL

@@ -78,10 +78,11 @@ img.flecha_derecha {
 }
 
 .videoWrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    margin-top: 5%;
+    margin: 4em 10em;
+}
+
+.altura {
+    height: 26em;
 }
 
 @media (max-width: 1278px) {

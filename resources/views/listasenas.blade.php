@@ -37,15 +37,16 @@
             <div class="flex">           
                   <div class="flex-initial w-64">
                     <div class="mt-10"><span id="cantidadPalabras">Palabras ({{ $total }})</span></div>
-                    <select class="form-select-2 orden_letra scrollable-element uppercase w-full he-20 mt-12  rounded" id="" aria-label="Lista de palabras" size="10" >
+                    <select class="orden_letra scrollable-element altura" id="" aria-label="Lista de palabras" size="10" >
                         @foreach ($senas as $sena)
-                         <option value="{{ $sena->id }}" class="w-56 count"> {{ $sena->palabra }}</option>
+                         <option value="{{ $sena->id }}" class="w-56 count uppercase"> {{ $sena->palabra }}</option>
                         @endforeach
                     </select>
                   </div>
-                  <div class="flex-initial w-64">
-                    <div class="videoWrapper"><iframe width="560" height="349" src="http://www.youtube.com/embed/wIgqj_NgbLM" frameborder="0" allowfullscreen></iframe></div>
+                  <div class="flex-initial w-full">
+                    <div class="videoWrapper"><iframe width="560" height="349" src="http://www.youtube.com/embed/{{ $video->video }}" frameborder="0" allowfullscreen></iframe></div>
                   </div>
+               
 
             </div>
             <div class="pt-20"> </div>

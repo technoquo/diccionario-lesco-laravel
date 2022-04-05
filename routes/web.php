@@ -38,6 +38,7 @@ Route::post('/diccionario/SenaFavoritaUsuario', [DiccionarioController::class, '
 
 Route::post('/diccionario/CorazonFavorito', [DiccionarioController::class, 'CorazonFavorito']);
 
+Route::post('/diccionario/MostrarVideo', [DiccionarioController::class, 'MostrarVideo']);
 
 Route::get('/senasfavoritas', [SenasFavoritasController::class, 'index'])->name('senasfavoritas')->middleware('auth');
 

@@ -19,8 +19,9 @@ class ListaSenasController extends Controller
         $categorias = Categorias::orderBy('categoria', 'ASC')->get();
         $senas = Senas::where('letra', '=', 'A')->where('estado', '=', 'A')->orderBy('palabra', 'ASC')->get();
         $total = Senas::where('estado', '=', 'A')->count();
+        $video = Senas::where('estado', '=', 'A')->first();
         
-         return view('listasenas', ['categorias' => $categorias, 'senas' => $senas, 'total' => $total]);
+         return view('listasenas', ['categorias' => $categorias, 'senas' => $senas, 'total' => $total, 'video' => $video]);
        
        
     }

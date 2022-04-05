@@ -126,8 +126,19 @@ class DiccionarioController extends Controller
         exit;
     }
 
-    
 
+    public function MostrarVideo(Request $request){
+
+         
+        $arr['data'] = Senas::where('id', '=', $request->id)->get();
+         
+        
+        echo json_encode($arr);
+        exit;
+    }
+
+    
+    
 
    
  
