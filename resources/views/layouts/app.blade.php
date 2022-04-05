@@ -18,7 +18,7 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/lesco.js') }}"></script>
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 

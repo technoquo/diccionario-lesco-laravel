@@ -1130,6 +1130,10 @@ input[type=file]::file-selector-button:hover {
   float: right;
 }
 
+.float-left {
+  float: left;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1138,6 +1142,10 @@ input[type=file]::file-selector-button:hover {
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .mt-1 {
@@ -1156,16 +1164,20 @@ input[type=file]::file-selector-button:hover {
   margin-bottom: 1rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.ml-2 {
-  margin-left: 0.5rem;
 }
 
 .ml-auto {
@@ -1218,6 +1230,14 @@ input[type=file]::file-selector-button:hover {
 
 .w-96 {
   width: 24rem;
+}
+
+.w-64 {
+  width: 16rem;
+}
+
+.w-56 {
+  width: 14rem;
 }
 
 .w-5 {
@@ -1646,12 +1666,27 @@ input[type=file]::file-selector-button:hover {
     
 }
 
-img.flecha {
+img.flecha_izquierda {
     width: 29px;
     height:29px;
     position: relative;
     top: -2px;
     left: 3px;
+}
+
+img.flecha_derecha {
+    width: 29px;
+    height:29px;
+    position: relative;
+    top: -2px;
+    left: 3px;
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-top: 5%;
 }
 
 @media (max-width: 1278px) {
@@ -1726,6 +1761,36 @@ img.delete {
     position: relative;
     top: 10px;
     right: 25px;
+}
+
+.top_left_super{
+    position: relative;
+    top: 10px;
+    left: 25px;
+}
+
+form-select.palabras {
+    height: 89%;
+}
+
+select.scrollable-element {
+    border: solid 1px black;
+    margin-top: 10px;
+    background: transparent;
+    -webkit-appearance: none;
+}
+
+.he-20 {
+    height: 20em;
+}
+
+select {
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
 }
 
 @media (max-width: 1004px) {

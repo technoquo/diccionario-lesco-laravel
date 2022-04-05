@@ -8,7 +8,7 @@
             </div>
             <div class="bg-white content-center rounded-t-md">
                 <div class="flex float-right top_right_super">
-                   <div class="inline-flex text-cyan-600 pointer"><span class="mt-2">Ir a la lista de vocabulario</span><a href="/listasenas" aria-label="lista de vocabulario"><img class="flecha" src="{{ asset('images/flecha.png') }}" alt="flecha"/></a></div>                    
+                   <div class="inline-flex text-cyan-600 pointer"><span class="mt-2">Ir a la lista de vocabulario</span><a href="/listasenas" aria-label="lista de vocabulario"><img class="flecha_izquierda" src="{{ asset('images/flecha.png') }}" alt="flecha"/></a></div>                    
                 </div> 
                 
                 <div class="pt-11"></div>

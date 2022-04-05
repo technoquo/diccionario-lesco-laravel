@@ -72,7 +72,7 @@ $.ajaxSetup({
 
 $(document).on("click", ".seleccionar", function(event) {
     
-   console.log((this.id) + '-'+ $(".form-select").val());
+  
      var url;
     if ($('input[name=tipo').val() == 'mosaico'){
          url = '/diccionario/MostrarLetra';        
@@ -80,7 +80,7 @@ $(document).on("click", ".seleccionar", function(event) {
          url = '/listasenas/MostrarLetra';
     }
 
-    console.log(url);
+    
     event.preventDefault();
     var OrdenarPalabras = [];
     $(".orden_letra").html('');
@@ -95,7 +95,7 @@ $(document).on("click", ".seleccionar", function(event) {
             'cod_categoria': $(".form-select").val()
         },
         success: function(response) {
-           console.log(response['data']);
+           
             $.each(response['data'], function(index, value) {
                 
                 var Obj = {
@@ -141,11 +141,12 @@ $(document).on("click", ".seleccionar", function(event) {
                 $.each(OrdenarPalabras, function(index, value) {
                  
                 if (value.estado =='A') {
-                    list +='<option value="'+ value.id +'">'+ value.palabra +'</option>';
+                    list +='<option value="'+ value.id +'" class="w-56 count">'+ value.palabra +'</option>';
                 
                 }
             });
             $(".orden_letra").append(list);
+            $('#cantidadPalabras').html('Palabras (' +  $('.count').length +')');
             }
             
           
@@ -167,7 +168,7 @@ $(document).on("click", ".seleccionar", function(event) {
 
       $(".form-select").change(function(event){
           
-                event.preventDefault();
+                event.preventDefault();S               
                 var OrdenarPalabras = [];
                 $(".orden_letra").html('');
                 var list = "";
@@ -195,6 +196,8 @@ $(document).on("click", ".seleccionar", function(event) {
             
             
                         });
+
+                      if ($('input[name=tipo').val() == 'mosaico'){
              
                         $.each(OrdenarPalabras, function(index, value) {
                                 
@@ -220,7 +223,19 @@ $(document).on("click", ".seleccionar", function(event) {
                         BottonMostrar();
                         MostrarSenasMinimo();
                         CorazonFavorito();
-                    
+                     } else {
+                        $(".orden_letra").html('');
+                  
+                        $.each(OrdenarPalabras, function(index, value) {
+                        
+                        if (value.estado =='A') {
+                            list +='<option value="'+ value.id +'" class="w-56 count">'+ value.palabra +'</option>';
+                        
+                        }
+                    });
+                    $(".orden_letra").append(list);
+                    }
+                     $('#cantidadPalabras').html('Palabras (' +  $('.count').length +')');
                     },
                     error: function(error) {
                     console.log(error);
@@ -374,7 +389,7 @@ $(document).on("click", ".seleccionar", function(event) {
 
                     
                        $('.favorito_'+ response['id']).remove();
-                       console.log($('.card').length);
+                      
                        $('#cantidadLetra').html('Tus señas favoritas  ('+ $('.card').length +')');
                      }
                     },

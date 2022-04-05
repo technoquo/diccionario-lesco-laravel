@@ -46,17 +46,6 @@ class ListaSenasController extends Controller
         exit;
      }
 
-     public function MostrarCategoria(Request $request){
-     
-         
-    //     if($request->cod_categoria==0){ 
-    //         $arr['data'] =Senas::orderBy('palabra', 'ASC')->get(); 
-    //     }else{   
-    //         $arr['data'] = Senas::where('cod_categoria', '=', $request->cod_categoria)->where('estado', '=', 'A')->orderBy('palabra', 'ASC')->get();
-    //     }
-   
-    //     echo json_encode($arr);
-    //     exit;
-   }
+ 
         
 }
