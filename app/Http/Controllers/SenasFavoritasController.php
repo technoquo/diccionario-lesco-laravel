@@ -22,6 +22,7 @@ class SenasFavoritasController extends Controller
 
      $favoritos = Senas::join('senas_favoritas', 'senas_favoritas.id_sena', '=', 'senas.id')
               ->where('senas_favoritas.id_user','=', auth()->user()->id)
+              ->orderBy('senas.palabra', 'ASC')
               ->get();
 
      $total_favoritos = SenasFavoritas::where('id_user','=', auth()->user()->id)->count();

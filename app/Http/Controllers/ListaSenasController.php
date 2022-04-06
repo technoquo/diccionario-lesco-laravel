@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Senas;
+use App\Models\SenasFavoritas;
 use App\Models\Categorias;
 
 class ListaSenasController extends Controller
@@ -19,9 +20,11 @@ class ListaSenasController extends Controller
         $categorias = Categorias::orderBy('categoria', 'ASC')->get();
         $senas = Senas::where('letra', '=', 'A')->where('estado', '=', 'A')->orderBy('palabra', 'ASC')->get();
         $total = Senas::where('estado', '=', 'A')->count();
-        $video = Senas::where('estado', '=', 'A')->first();
+        $defecto = Senas::where('estado', '=', 'A')->first();
+       
         
-         return view('listasenas', ['categorias' => $categorias, 'senas' => $senas, 'total' => $total, 'video' => $video]);
+        
+         return view('listasenas', ['categorias' => $categorias, 'senas' => $senas, 'total' => $total, 'defecto' => $defecto]);
        
        
     }

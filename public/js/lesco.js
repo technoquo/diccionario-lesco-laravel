@@ -1,7 +1,7 @@
 
 $( document ).ready(function() {
 
-
+   
     $(document).on("click", ".inicio", function(event) {
 
        window.location.href = '/diccionario';
@@ -416,12 +416,12 @@ $(document).on("click", ".seleccionar", function(event) {
                          'id': $(".scrollable-element").val()
                      },
                      success: function(response){
-                        
+                        console.log(response['data']);
                     
-                       video = '<iframe width="560" height="349" src="http://www.youtube.com/embed/' + response['data'][0].video + '" frameborder="0" allowfullscreen></iframe>';
+                       video = '<div class="barra"><img class="mostrar_' + response['data'][0].id + ' ico_heart_left heart-fill cursor-pointer agregarcorazonfavorito" id="' + response['data'][0].id + '"></div><iframe width="100%" height="600" src="http://www.youtube.com/embed/' + response['data'][0].video + '" frameborder="0" allowfullscreen></iframe><div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8"><div class="nombre_palabra">' + response['data'][0].palabra + '</div></div>';
                        
                        $('.videoWrapper').append(video);
-                        
+                       CorazonFavorito();
                      },
                      error: function(error) {
                      console.log(error);
@@ -501,7 +501,8 @@ function CorazonFavorito(){
         dataType: "json",                
         success: function(response){      
           
-            $(response['data']).each(function(index, value) {          
+            $(response['data']).each(function(index, value) {   
+                      
                $('.mostrar_'+ value.id_sena).removeClass('heart-fill').addClass('heart');
             });
                

@@ -1679,11 +1679,23 @@ img.flecha_derecha {
 }
 
 .videoWrapper {
-    margin: 4em 10em;
+    margin: 0em 10em;
 }
 
 .altura {
     height: 26em;
+}
+
+.barra {
+    width: 100%;
+}
+
+.barra img {
+    float: right;
+    position: relative;
+    top: 3em;
+    left: 5em;
+    
 }
 
 @media (max-width: 1278px) {
