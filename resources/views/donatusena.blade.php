@@ -15,7 +15,7 @@
                         <div class="text-center">¿Querés proponernos una seña que le gusta saber e incluyamos nuestro
                             proyecto?</div>
                         <div class="text-center mt-10">
-                            <input type="text" name="sena" class="rounded" />
+                            <input type="text" name="sena" id="sena" class="rounded" autocomplete="off" />
                             <p class="text-red-500 text-xs italic error hidden">Por favor escriba una seña.</p>
                         </div>
 
@@ -28,61 +28,61 @@
                         <div class="flex flex-wrap -mx-3 mb-6">
                             <div class="w-full">
                                 <label class="block uppercase tracking-wide  text-xs font-bold mb-2" for="grid-first-name">
-                                    Tu seña disponibe a incluir nuestro proyecto: <span class="text-sky-500"
-                                        id="sign">dfdasf</span>
+                                   Buena noticia! tu seña disponible <span class="text-sky-500" id="sign"></span> vamos a incluir nuestro proyecto.
                                 </label>
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-2">
                             <div class="w-full p-4">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                    for="grid-first-name">
+                                    for="nombre">
                                     Nombre
                                 </label>
                                 <input
                                     class="appearance-none block w-full bg-white border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-name" type="text" placeholder="Nombre">
+                                    id="nombre" type="text" placeholder="Nombre">
 
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-2">
                             <div class="w-full p-4">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                    for="grid-last-name">
+                                    for="apellidos">
                                     Apellidos
                                 </label>
                                 <input
                                     class="appearance-none block w-full bg-white border  rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" placeholder="Apellido">
+                                    id="apellidos" type="text" placeholder="Apellido">
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-2">
                             <div class="w-full p-4">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                    for="grid-state">
+                                    for="email">
                                     Email
                                 </label>
                                 <input
                                     class="appearance-none block w-full bg-white border  rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="email" placeholder="Email">
+                                    id="email" type="email" placeholder="Email">
                             </div>
                         </div>
 
                         <div class="flex flex-wrap -mx-3 mb-2">
                             <div class="w-full  p-4">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                    for="grid-state">
+                                    for="donacion">
                                     Donación
                                 </label>
                                 <div class="relative">
                                     <select
                                         class="block appearance-none w-full  bg-white py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                        id="grid-state">
+                                        id="donacion">
                                         <option value="1">5.000 colones</option>
                                         <option value="2">10.000 colones</option>
                                     </select>
 
                                 </div>
+                                <p class="text-black text-lg italic mt-10">** Despues de llenar su solicitud, le enviaremos la cuenta  bancaria de Hands On a su correo indicado para realizar el deposito.</p>
                             </div>
                         </div>
                         <div class="text-center mt-10"><button

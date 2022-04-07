@@ -41,12 +41,15 @@ Route::post('/diccionario/CorazonFavorito', [DiccionarioController::class, 'Cora
 
 Route::post('/diccionario/MostrarVideo', [DiccionarioController::class, 'MostrarVideo']);
 
+Route::post('/diccionario/Verificar', [DiccionarioController::class, 'Verificar']);
+
 Route::get('/senasfavoritas', [SenasFavoritasController::class, 'index'])->name('senasfavoritas')->middleware('auth');
 
 Route::get('/listasenas', [ListaSenasController::class, 'index'])->name('listasenas')->middleware('auth');
 
 Route::post('/listasenas/MostrarLetra', [ListaSenasController::class, 'MostrarLetra']);
 
-Route::get('/donetusena', [DonacionesController::class, 'index'])->middleware('auth');
 
-Route::post('/donetusena/Verificar', [DonacionesController::class, 'Verificar']);
+Route::get('/donatusena', [DonacionesController::class, 'index'])->middleware('auth');
+
+Route::post('/donaciones/Verificar', [DonacionesController::class, 'Verificar']);

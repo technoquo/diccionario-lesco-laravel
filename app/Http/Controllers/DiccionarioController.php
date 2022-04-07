@@ -139,6 +139,13 @@ class DiccionarioController extends Controller
 
     
     
+    public function Verificar(Request $request)
+    {
+        
+        $arr['data'] = Senas::where('palabra', '=', $request->palabra)->count();
+        echo json_encode($arr);
+        exit;
+    }
 
    
  

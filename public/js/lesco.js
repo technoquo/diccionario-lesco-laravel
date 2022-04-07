@@ -49,9 +49,12 @@ $(document).on("click", ".modal", function(event) {
   
 });
 
+$("#sena").keyup(function() {
+    $('.error').addClass('hidden');
+  });
 
 $(document).on("click", ".donar", function(event) {
-    
+       
      if ($('input[name=sena]').val() =="" ){
            
              $('.error').removeClass('hidden');
@@ -62,14 +65,20 @@ $(document).on("click", ".donar", function(event) {
      $.ajax({
         method: "POST",
         dataType: "json",
-        url: '/donatusena/Verificar',
+        url: '/donaciones/Verificar',
         data: {
             'palabra': $('input[name=sena]').val()            
         },
         success: function(response) {
-           
-         console.log(response['data']);
-            
+           console.log(response['data']);
+         if (response['data'] == 1) {
+            $('.error').removeClass('hidden');
+            $('.error').html('Se encuentra registrado en nuestra base de datos, escriba otra palabra de seña disponible.');
+            return false;
+         }
+         $('.donasena').addClass('hidden');
+         $('.form_donacion').removeClass('hidden');
+         $('#sign').html($('input[name=sena]').val());
           
             
            
@@ -81,9 +90,7 @@ $(document).on("click", ".donar", function(event) {
     });
 
 
-   $('.donasena').addClass('hidden');
-   $('.form_donacion').removeClass('hidden');
-   $('#sign').html($('input[name=sena]').val());
+   
   
   });
 

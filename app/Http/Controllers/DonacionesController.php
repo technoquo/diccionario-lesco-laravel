@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Senas;
+use App\Models\Donaciones;
 use Illuminate\Http\Request;
 
 
 class DonacionesController extends Controller
 {
-    //
+       /**
+     * 
+     *
+     * @return \Illuminate\Http\Response
+     */
+    
     public function index()
     {
       return view('donatusena');       
@@ -21,5 +27,26 @@ class DonacionesController extends Controller
         echo json_encode($arr);
         exit;
     }
+
+    public function guardar(Request $request)
+    {
+      Donaciones::create([
+        'nombre'  => $request->nombre,
+        'apellidos' => $request->apellidos,   
+        'senas' => $request->sena,
+        'donacion' => $request->donacion, 
+        'email' => $request->email,   
+        'estado' => 0
+        
+    ]);
+       
+    $data = array('message'=>'success');
+    
+
+    echo json_encode($data);
+       
+    }
+
+
 }
 
