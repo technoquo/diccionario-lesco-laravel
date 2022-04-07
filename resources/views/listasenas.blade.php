@@ -8,10 +8,10 @@
             </div>
             <div class="bg-white content-center rounded-t-md">
                 <div class="flex float-left top_left_super">
-                    <div class="inline-flex text-cyan-600 pointer"><a href="/diccionario"
+                    <div class="inline-flex text-cyan-600 pointer text-sky-500"><a href="/diccionario"
                             aria-label="La vista de mosaico"><img class="flecha_derecha"
                                 src="{{ asset('images/flecha_izquierda.png') }}" alt="flecha" /></a><span
-                            class="mt-2 ml-2"> Ir a la vista de mosaico</span></div>
+                            class="mt-1 ml-2"> Ir a la vista de mosaico</span></div>
                 </div>
 
                 <div class="pt-11"></div>

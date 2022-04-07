@@ -4,6 +4,16 @@
 
 @import "tailwindcss/utilities";
 
+
+/***  TAIWLIND *****/
+
+.bg-sky-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+/******************/
+
+
 .inicio {
     cursor: pointer;
 }
@@ -97,6 +107,12 @@ img.flecha_derecha {
     
 }
 
+.equis {
+    position: relative;
+    top: 15px;
+    right: 26px;
+}
+
 @media (max-width: 1278px) {
 
     .btn-toolbarx {
@@ -114,11 +130,7 @@ img.flecha_derecha {
     background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
-.equis {
-    position: relative;
-    top: 10px;
-    left: -20px;
-}
+
 
 .ico_heart_favorito {
     top: 6em;
@@ -155,14 +167,20 @@ img.heart-fill {
 }
 
 img.delete {
-    background-image: url(/images/remove.png);
     display: block;
+    background-image: url(/images/remove.png);
     width: 20px !important;
     height: 20px !important;
-    outline: none;
-    padding: 43px 51px 43px 51px;
     background-repeat: no-repeat;
     background-size: 20px;
+    position: relative;
+    outline: none;
+    top: 2em;
+    z-index: 1;
+    left: 1em;
+    cursor: pointer;
+    border: 0;
+    
 }
 
 .top_right_super{
@@ -202,7 +220,11 @@ select {
     color-adjust: exact;
 }
 
-
+@media (max-width: 1074px) {
+ .top_right_super {
+     display: none;
+  }
+}
 @media (max-width: 1004px) {
 
     .movil {
@@ -210,3 +232,11 @@ select {
         margin-bottom: 2rem;
     }
   }
+
+  @media (min-width: 769px) {
+
+    .mobile-menu {
+         display: none;
+    }
+  }
+

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DiccionarioController;
 use App\Http\Controllers\SenasFavoritasController;
 use App\Http\Controllers\ListaSenasController;
+use App\Http\Controllers\DonacionesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,3 +46,7 @@ Route::get('/senasfavoritas', [SenasFavoritasController::class, 'index'])->name(
 Route::get('/listasenas', [ListaSenasController::class, 'index'])->name('listasenas')->middleware('auth');
 
 Route::post('/listasenas/MostrarLetra', [ListaSenasController::class, 'MostrarLetra']);
+
+Route::get('/donetusena', [DonacionesController::class, 'index'])->middleware('auth');
+
+Route::post('/donetusena/Verificar', [DonacionesController::class, 'Verificar']);

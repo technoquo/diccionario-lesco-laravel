@@ -33,7 +33,7 @@
                 </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                     <div class="hidden md:flex items-center space-x-1">
-                        <ul class="flex">
+                        <ul class="flex text-sky-500">
                             <li><a class="no-underline text-black mr-4 hover:text-red-500" target="_blank"
                                     href="https://www.handsonlesco.com/">¿Quienés somos?</a></li>
                             <li><a class="no-underline  text-black mr-4 hover:text-red-500" target="_blank"
@@ -42,6 +42,8 @@
                                     href="https://www.handsonlesco.com/contactanos/">Contacto</a> </li>
                             <li> <a class="py-13 pt-15  mr-4 text-black hover:text-red-500" target="_blank"
                                     href="https://www.handsonlesco.com/cursos/">Cursos</a></li>
+                            <li> <a class="py-13 pt-15  mr-4 text-black hover:text-red-500" 
+                                        href="/donatusena">Doná tu seña!</a></li>
                             @if (Auth::user())
                                 <li>
                                     <a class="py-13 pt-15  mr-4 text-black hover:text-red-500"  title="Tus señas favoritas"
@@ -90,6 +92,9 @@
                             </li>
                             <li><a href="https://www.handsonlesco.com/cursos/"
                                     class="block text-sm px-2 py-4 text-black hover:bg-blue-500 transition duration-300">Cursos
+                                </a></li>
+                                <li><a href="donatusena/"
+                                    class="block text-sm px-2 py-4 text-black hover:bg-blue-500 transition duration-300">Doná tu seña!
                                 </a></li>
                             @if (Auth::user())
                             <li>

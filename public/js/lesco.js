@@ -24,7 +24,7 @@ $(document).on("click", ".modal", function(event) {
          $modal += '<div class="relative bg-white rounded-lg shadow dark:bg-gray-700">';
          $modal += '<div class="flex justify-end p-2">';
          $modal += '<button id="'+ this.id +'" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white close" data-modal-toggle="popup-modal">';
-         $modal += '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>'; 
+         $modal += '<svg class="w-5 h-5 equis" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>'; 
          $modal += '</button>';
          $modal += '</div>';        
          $modal += '<div class="p-6 pt-0 text-center">';
@@ -50,7 +50,46 @@ $(document).on("click", ".modal", function(event) {
 });
 
 
- 
+$(document).on("click", ".donar", function(event) {
+    
+     if ($('input[name=sena]').val() =="" ){
+           
+             $('.error').removeClass('hidden');
+        return false;
+     }
+
+   
+     $.ajax({
+        method: "POST",
+        dataType: "json",
+        url: '/donatusena/Verificar',
+        data: {
+            'palabra': $('input[name=sena]').val()            
+        },
+        success: function(response) {
+           
+         console.log(response['data']);
+            
+          
+            
+           
+    
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+
+   $('.donasena').addClass('hidden');
+   $('.form_donacion').removeClass('hidden');
+   $('#sign').html($('input[name=sena]').val());
+  
+  });
+
+
+
+
 
 
 $("#loadMore").on("click", function(e) {
@@ -117,7 +156,7 @@ $(document).on("click", ".seleccionar", function(event) {
                 if (value.estado =='A') {
                     list +='<div class="p-8 card hidden estado_'+ value.estado +'" id="'+ value.id +'">';
                     list +='          <div class="hidden" id="video_'+ value.id +'">'+ value.video +'</div>';
-                    list +='             <img class="mostrar_'+ value.id +'  card-img-left ico_heart_favorito heart-fill" id="'+ value.id +'">'
+                    list +='             <img class="mostrar_'+ value.id +'  card-img-left ico_heart_favorito heart-fill agregarcorazonfavorito" id="'+ value.id +'">'
                     list +='    <div class="modal" id="'+ value.id +'">';
                     list +='                <img src="http://img.youtube.com/vi/'+ value.video +'/mqdefault.jpg" alt="'+ value.palabra +'">';                                  
                     list +='                  <div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8">';
@@ -148,6 +187,11 @@ $(document).on("click", ".seleccionar", function(event) {
             });
             $(".orden_letra").append(list);
             $('#cantidadPalabras').html('Palabras (' +  $('.count').length +')');
+            if ( $('.count').length == 0) {
+                 $('.scrollable-element').addClass('w-full');
+            } else {
+                $('.scrollable-element').removeClass('w-full');
+            }
             }
             
           
@@ -237,6 +281,11 @@ $(document).on("click", ".seleccionar", function(event) {
                     $(".orden_letra").append(list);
                     }
                      $('#cantidadPalabras').html('Palabras (' +  $('.count').length +')');
+                     if ( $('.count').length == 0) {
+                        $('.scrollable-element').addClass('w-full');
+                   } else {
+                       $('.scrollable-element').removeClass('w-full');
+                   }
                     },
                     error: function(error) {
                     console.log(error);
@@ -416,7 +465,7 @@ $(document).on("click", ".seleccionar", function(event) {
                          'id': $(".scrollable-element").val()
                      },
                      success: function(response){
-                        console.log(response['data']);
+                       
                     
                        video = '<div class="barra"><img class="mostrar_' + response['data'][0].id + ' ico_heart_left heart-fill cursor-pointer agregarcorazonfavorito" id="' + response['data'][0].id + '"></div><iframe width="100%" height="600" src="http://www.youtube.com/embed/' + response['data'][0].video + '" frameborder="0" allowfullscreen></iframe><div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8"><div class="nombre_palabra">' + response['data'][0].palabra + '</div></div>';
                        
@@ -502,8 +551,8 @@ function CorazonFavorito(){
         success: function(response){      
           
             $(response['data']).each(function(index, value) {   
-                      
-               $('.mostrar_'+ value.id_sena).removeClass('heart-fill').addClass('heart');
+                $('.mostrar_'+ value.id_sena).removeClass('heart-fill').addClass('heart quitarsena'); 
+            
             });
                
         },
