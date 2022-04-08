@@ -43,6 +43,8 @@ Route::post('/diccionario/MostrarVideo', [DiccionarioController::class, 'Mostrar
 
 Route::post('/diccionario/Verificar', [DiccionarioController::class, 'Verificar']);
 
+Route::get('/diccionario/send-mail', [DiccionarioController::class, 'send']);
+
 Route::get('/senasfavoritas', [SenasFavoritasController::class, 'index'])->name('senasfavoritas')->middleware('auth');
 
 Route::get('/listasenas', [ListaSenasController::class, 'index'])->name('listasenas')->middleware('auth');

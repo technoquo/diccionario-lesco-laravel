@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 
+
+use Illuminate\Http\Request;
 use App\Models\Categorias;
 use App\Models\Senas;
 use App\Models\SenasFavoritas;
-use Illuminate\Http\Request;
+use Mail;
+use App\Mail\Mail as DemoMail;
 
 class DiccionarioController extends Controller
 {
@@ -147,6 +150,22 @@ class DiccionarioController extends Controller
         exit;
     }
 
+   /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function send()
+    {
+        $mailData = [
+            'title' => 'Mail from codingspoint.com',
+            'body' => 'This is for testing email using smtp.'
+        ];
+          
+        Mail::to('lelobo@yahoo.com')->cc('lelobo75@gmail.com')->send(new DemoMail($mailData));
+            
+        dd("Email is sent successfully.");
+    }
    
  
 }
