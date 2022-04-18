@@ -33,7 +33,7 @@ class DonacionesController extends Controller
       Donaciones::create([
         'nombre'  => $request->nombre,
         'apellidos' => $request->apellidos,   
-        'senas' => $request->sena,
+        'sena' => $request->sena,
         'donacion' => $request->donacion, 
         'email' => $request->email,   
         'estado' => 0

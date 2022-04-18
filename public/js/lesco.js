@@ -557,10 +557,12 @@ function CorazonFavorito(){
         dataType: "json",                
         success: function(response){      
           
-            $(response['data']).each(function(index, value) {   
-                $('.mostrar_'+ value.id_sena).removeClass('heart-fill').addClass('heart quitarsena'); 
-            
-            });
+            if (response['data'] != 'vacio'){
+                $(response['data']).each(function(index, value) {   
+                    $('.mostrar_'+ value.id_sena).removeClass('heart-fill').addClass('heart quitarsena'); 
+                
+                });
+            }
                
         },
         error: function(error) {
@@ -569,6 +571,65 @@ function CorazonFavorito(){
     });
 
 }
+
+function validateEmail($email) {
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    return emailReg.test( $email );
+  }
+
+  $(document).on("keyup", "#nombre", function(event) {
+    $('.error_nombre').addClass('hidden');
+    $('.mensaje').css('display','none');
+    
+  });
+
+  $(document).on("keyup", "#email", function(event) {
+    $('.error_email').addClass('hidden');
+  });
+  
+$(document).on("click", ".send", function(event) {
+
+    if ($('#nombre').val() == ''){
+        $('.error_nombre').removeClass('hidden');
+        return false;
+    } else  if ($('#apellidos').val() == ''){
+        $('.error_apellidos').removeClass('hidden');
+        return false;
+    } else  if (($('#email').val() == '') || ( !validateEmail($('#email').val()))){
+        $('.error_email').removeClass('hidden');
+        return false;
+    }
+
+    var dataDonacion = {
+        nombre : $('#nombre').val(),
+        apellidos : $('#apellidos').val(),
+        email : $('#email').val(),
+        sena : $('#sign').html(),
+        donacion : $('#donacion').val()      
+     }
+    $.ajax({
+        url: '/donaciones/guardar',              
+        method: "POST",
+        dataType: "json", 
+        data: dataDonacion,               
+        success: function(response){      
+          
+            if (response['message']=='success') {         
+                $('.mensaje').css('display','block');
+                $('#nombre').val('');
+                $('#apellidos').val('');
+                $('#email').val('');
+            }
+               
+        },
+        error: function(error) {
+        console.log(error);
+        }
+    });
+ 
+ 
+
+});
 
 
 

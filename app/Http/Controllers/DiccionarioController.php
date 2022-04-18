@@ -121,12 +121,20 @@ class DiccionarioController extends Controller
 
     public function CorazonFavorito(){
 
-         
+       if (auth()->user() != NULL) {
         $arr['data'] = SenasFavoritas::where('id_user', '=', auth()->user()->id)->get();
-         
+        
 
         echo json_encode($arr);
         exit;
+       } else {
+        $arr['data'] = 'vacio';
+        
+
+        echo json_encode($arr);
+        exit;
+       }
+       
     }
 
 

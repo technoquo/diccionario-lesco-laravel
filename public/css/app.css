@@ -1873,6 +1873,11 @@ select {
     color-adjust: exact;
 }
 
+.mensaje {
+    display: none;
+    width: 28em;
+}
+
 @media (max-width: 1074px) {
  .top_right_super {
      display: none;

@@ -54,4 +54,6 @@ Route::post('/listasenas/MostrarLetra', [ListaSenasController::class, 'MostrarLe
 
 Route::get('/donatusena', [DonacionesController::class, 'index'])->middleware('auth');
 
+Route::post('/donaciones/guardar', [DonacionesController::class, 'guardar']);
+
 Route::post('/donaciones/Verificar', [DonacionesController::class, 'Verificar']);
