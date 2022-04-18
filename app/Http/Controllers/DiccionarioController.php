@@ -162,7 +162,14 @@ class DiccionarioController extends Controller
             'body' => 'This is for testing email using smtp.'
         ];
           
-        Mail::to('lelobo@yahoo.com')->cc('lelobo75@gmail.com')->send(new DemoMail($mailData));
+        $myUsers = 'leonel.lopez@accesovisualcr.com';
+        $myMoreUsers ='lelobo@yahoo.com';
+        $evenMyMoreUsers = 'technoquo@gmail.com';
+        
+        Mail::to($myUsers)
+            ->cc(["lelobo@yahoo.com"])
+            ->bcc(["technoquo@gmail.com"])      
+            ->send(new DemoMail($mailData));
             
         dd("Email is sent successfully.");
     }

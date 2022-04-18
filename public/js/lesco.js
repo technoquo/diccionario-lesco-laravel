@@ -28,7 +28,7 @@ $(document).on("click", ".modal", function(event) {
          $modal += '</button>';
          $modal += '</div>';        
          $modal += '<div class="p-6 pt-0 text-center">';
-         $modal += '<iframe width="420" height="315" src="https://www.youtube.com/embed/'+ $('#video_'+this.id).html() +'"></iframe>';
+         $modal += '<iframe class="responsive-iframe" src="https://www.youtube.com/embed/'+ $('#video_'+this.id).html() +'"></iframe>';
          $modal += '<h3 class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8 mt-10">'+ $('#nombre_palabra_'+ this.id).html() +'</h3>';
         //  $modal += '<button data-modal-toggle="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800  font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2 agregarsenafavorita_'+ this.id +' agregarsenafavorita" id="'+ this.id +'">';
         //  $modal += 'Añadir tu seña favorita';
@@ -70,7 +70,7 @@ $(document).on("click", ".donar", function(event) {
             'palabra': $('input[name=sena]').val()            
         },
         success: function(response) {
-           console.log(response['data']);
+          
          if (response['data'] == 1) {
             $('.error').removeClass('hidden');
             $('.error').html('Se encuentra registrado en nuestra base de datos, escriba otra palabra de seña disponible.');

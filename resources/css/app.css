@@ -113,6 +113,12 @@ img.flecha_derecha {
     right: 26px;
 }
 
+.responsive-iframe {
+
+  width: 1020px;
+  height: 670px;
+}
+
 @media (max-width: 1278px) {
 
     .btn-toolbarx {
@@ -233,8 +239,20 @@ select {
     }
   }
 
+  @media (max-width: 912px) {
+
+    .responsive-iframe {
+
+        width: 100%;
+        height: 100%;
+      }
+  }
+
+  
+
   @media (min-width: 769px) {
 
+   
     .mobile-menu {
          display: none;
     }
