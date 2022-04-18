@@ -619,6 +619,7 @@ $(document).on("click", ".send", function(event) {
                 $('#nombre').val('');
                 $('#apellidos').val('');
                 $('#email').val('');
+                $('.send').css('display','none');
             }
                
         },
