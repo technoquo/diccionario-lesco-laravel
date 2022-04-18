@@ -171,12 +171,12 @@ class DiccionarioController extends Controller
         ];
           
         $myUsers = 'leonel.lopez@accesovisualcr.com';
-        $myMoreUsers ='lelobo@yahoo.com';
+        $myMoreUsers ='soporte@handsonlesco.com';
         $evenMyMoreUsers = 'technoquo@gmail.com';
         
         Mail::to($myUsers)
-            ->cc(["lelobo@yahoo.com"])
-            ->bcc(["technoquo@gmail.com"])      
+            ->cc($myMoreUsers)
+            ->bcc($evenMyMoreUsers)      
             ->send(new DemoMail($mailData));
             
         dd("Email is sent successfully.");
