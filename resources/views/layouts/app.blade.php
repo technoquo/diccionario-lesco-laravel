@@ -3,24 +3,33 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
+         <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="description" content="Nuestro nuevo proyecto en Hands-On es el desarrollo de un Diccionario de LESCO (Lengua de Señas Costarricense) de acceso gratuito para toda la comunidad, para que estudiantes y personas interesadas, o personas usuarias de la LESCO, puedan utilizar como material de repaso, aprendizaje y consulta en línea." />
+    <meta name="keywords" content="Diccionario de LESCO, Hands On LESCO" />
+    <meta name="keywords_news" content="Diccionario de LESCO, Hands On LESCO" />
+    <meta property="og:title" content="Diccionario de LESCO">
+    <meta property="og:description" content="Nuestro nuevo proyecto en Hands-On es el desarrollo de un Diccionario de LESCO (Lengua de Señas Costarricense) de acceso gratuito para toda la comunidad, para que estudiantes y personas interesadas, o personas usuarias de la LESCO, puedan utilizar como material de repaso, aprendizaje y consulta en línea">
+    <meta property="og:image" content="http://handsonlesco.com/wp-content/uploads/2021/09/hero-section-img.png"/>
+    <meta property="og:image:width" content="1500"/>
+    <meta property="og:image:height" content="843"/>
+    <meta property="twitter:card" content="Diccionario de LESCO">
+    <meta property="twitter:title" content=" Diccionario de LESCO">
+    <meta property="twitter:description" content="Nuestro nuevo proyecto en Hands-On es el desarrollo de un Diccionario de LESCO (Lengua de Señas Costarricense) de acceso gratuito para toda la comunidad.">
+    <meta name="google-signin-client_id" content="1040391328006-gge4dmhms1l2kpjvuu8oto20jgoutr8o.apps.googleusercontent.com">
+    <link rel="shortcut icon" type="image/x-icon" href="https://desarrollo.handsonlesco.com/images/favicon.png?format=100w"/>
 
     <title>Diccionario Hands On</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/lesco.js') }}"></script>
    
 
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
 <body class="h-screen antialiased leading-none font-sans">

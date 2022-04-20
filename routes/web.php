@@ -52,7 +52,7 @@ Route::get('/listasenas', [ListaSenasController::class, 'index'])->name('listase
 Route::post('/listasenas/MostrarLetra', [ListaSenasController::class, 'MostrarLetra']);
 
 
-Route::get('/donatusena', [DonacionesController::class, 'index'])->middleware('auth');
+Route::get('/donatusena', [DonacionesController::class, 'index']);
 
 Route::post('/donaciones/guardar', [DonacionesController::class, 'guardar']);
 

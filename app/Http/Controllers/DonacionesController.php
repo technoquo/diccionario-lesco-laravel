@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Senas;
 use App\Models\Donaciones;
 use Illuminate\Http\Request;
+use Mail;
+use App\Mail\Mail as DemoMail;
 
 
 class DonacionesController extends Controller
@@ -42,8 +44,22 @@ class DonacionesController extends Controller
        
     $data = array('message'=>'success');
     
-
     echo json_encode($data);
+
+    $mailData = [
+      'nombre' => $request->nombre,
+      'sena' =>   $request->sena,
+      'donacion' =>   $request->donacion
+  ];
+    
+    $myUsers = $request->email;
+    $myMoreUsers ='soporte@handsonlesco.com';
+    $evenMyMoreUsers = 'technoquo@gmail.com';
+
+    Mail::to($myUsers)
+        ->cc($myMoreUsers)
+        ->bcc($evenMyMoreUsers)      
+        ->send(new DemoMail($mailData));
        
     }
 
