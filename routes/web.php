@@ -57,6 +57,13 @@ Route::post('/admin/salir', [PanelController::class, 'log_out'])->name('log_out'
 
 Route::get('/admin/dashboard', [PanelController::class, 'dashboard']);
 
+Route::get('/admin/activo', [PanelController::class, 'activo']);
+
+Route::get('/admin/inactivo', [PanelController::class, 'inactivo']);
+
+Route::get('/admin/pendiente', [PanelController::class, 'pendiente']);
+
+
 Route::get('/senasfavoritas', [SenasFavoritasController::class, 'index'])->name('senasfavoritas')->middleware('auth');
 
 Route::get('/listasenas', [ListaSenasController::class, 'index'])->name('listasenas')->middleware('auth');

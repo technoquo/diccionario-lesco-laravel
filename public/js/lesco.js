@@ -8,6 +8,12 @@ $( document ).ready(function() {
 
     });
 
+    $(document).on("click", ".admin", function(event) {
+
+        window.location.href = '/admin';
+ 
+     });
+
 $('.btn-group').html('');
 $('.btn-group').append('<a class="ml-2 uppercase text-white seleccionar" id="todas">Todas</a>')
 for (var i = 65; i <= 90; i++) {

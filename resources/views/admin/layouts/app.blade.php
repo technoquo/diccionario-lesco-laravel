@@ -21,7 +21,7 @@
         content="1040391328006-gge4dmhms1l2kpjvuu8oto20jgoutr8o.apps.googleusercontent.com">
     <link rel="shortcut icon" type="image/x-icon"
         href="https://desarrollo.handsonlesco.com/images/favicon_handson.png" />
-
+        <script src="https://cdn.tailwindcss.com"></script>
     <title>Panel de Control</title>
 
     <!-- Scripts -->
@@ -40,7 +40,7 @@
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
 
-                    <img class="inicio" src="{{ asset('images/hands.png') }}" alt="Hands On">
+                    <a href="/admin"><img src="{{ asset('images/hands.png') }}" alt="Hands On"></a>
 
                 </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">

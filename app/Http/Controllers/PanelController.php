@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UsersAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Senas;
 
 class PanelController extends Controller
 {
@@ -15,6 +16,7 @@ class PanelController extends Controller
      */
     public function index()
     {
+        
         return view('admin.login');
     }
 
@@ -28,10 +30,11 @@ class PanelController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect('/admin/dashboard');
         } else {
-            return redirect('/admin')->with('error', 'Invalid Email address or Password');
+            return redirect('/admin')->with(['message' => 'Correo electrónico o contraseña inválida']);
         }
         } else {
-            return redirect('/admin')->with('error', 'Solamente para los internos de Hands On');
+            return redirect('/admin')->with('message', 'Solamente para los internos de Hands On');
+            return redirect('/admin')->with(['message' => 'Solamente para los internos de Hands On']);
         }
     }
 
@@ -45,8 +48,65 @@ class PanelController extends Controller
     public function dashboard()
     {
 
-        return view('admin.dashboard');
+        $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
+        if ($validar == 1) {
+
+            $senas = Senas::orderBy('palabra', 'ASC')->get();
+            return view('admin.dashboard', ['senas' => $senas]);
+        } else {
+           return redirect('/'); 
+        }
+        
     }
+
+    public function activo()
+    {
+
+        
+        $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
+        if ($validar == 1) {
+
+            $senas = Senas::where('estado', '=', 'A')->orderBy('palabra', 'ASC')->get();
+            return view('admin.dashboard', ['senas' => $senas]);
+        } else {
+           return redirect('/'); 
+        }
+        
+    }
+
+    public function inactivo()
+    {
+
+        
+        $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
+        if ($validar == 1) {
+
+            $senas = Senas::where('estado', '=', 'I')->orderBy('palabra', 'ASC')->get();
+            return view('admin.dashboard', ['senas' => $senas]);
+        } else {
+           return redirect('/'); 
+        }
+        
+    }
+
+    public function pendiente()
+    {
+
+        
+        $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
+        if ($validar == 1) {
+
+            $senas = Senas::where('estado', '=', '')->orderBy('palabra', 'ASC')->get();
+            return view('admin.dashboard', ['senas' => $senas]);
+        } else {
+           return redirect('/'); 
+        }
+        
+    }
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -77,7 +137,11 @@ class PanelController extends Controller
      */
     public function show($id)
     {
-        //
+        
+       $sena = Senas::find($id);
+       
+
+       return view('admin.show')->with('sena', $sena);
     }
 
     /**
