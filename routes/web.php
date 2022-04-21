@@ -5,6 +5,8 @@ use App\Http\Controllers\DiccionarioController;
 use App\Http\Controllers\SenasFavoritasController;
 use App\Http\Controllers\ListaSenasController;
 use App\Http\Controllers\DonacionesController;
+use App\Http\Controllers\PanelController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +46,16 @@ Route::post('/diccionario/MostrarVideo', [DiccionarioController::class, 'Mostrar
 Route::post('/diccionario/Verificar', [DiccionarioController::class, 'Verificar']);
 
 Route::get('/diccionario/send-mail', [DiccionarioController::class, 'send']);
+
+Route::resource('/admin/dashboard',PanelController::class);
+
+Route::get('/admin', [PanelController::class, 'index']);
+
+Route::post('/admin/check_login', [PanelController::class, 'check_login'])->name('check_login');
+
+Route::post('/admin/salir', [PanelController::class, 'log_out'])->name('log_out');
+
+Route::get('/admin/dashboard', [PanelController::class, 'dashboard']);
 
 Route::get('/senasfavoritas', [SenasFavoritasController::class, 'index'])->name('senasfavoritas')->middleware('auth');
 

@@ -18,7 +18,7 @@
     <meta property="twitter:title" content=" Diccionario de LESCO">
     <meta property="twitter:description" content="Nuestro nuevo proyecto en Hands-On es el desarrollo de un Diccionario de LESCO (Lengua de Señas Costarricense) de acceso gratuito para toda la comunidad.">
     <meta name="google-signin-client_id" content="1040391328006-gge4dmhms1l2kpjvuu8oto20jgoutr8o.apps.googleusercontent.com">
-    <link rel="shortcut icon" type="image/x-icon" href="https://desarrollo.handsonlesco.com/images/favicon.png?format=100w"/>
+    <link rel="shortcut icon" type="image/x-icon" href="https://desarrollo.handsonlesco.com/images/favicon_handson.png"/>
 
     <title>Diccionario Hands On</title>
 
