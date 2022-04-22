@@ -3,3 +3,292 @@
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+
+
+/***  TAIWLIND *****/
+
+.bg-sky-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+/******************/
+
+
+.inicio {
+    cursor: pointer;
+}
+.fondo-diccionario {
+    background-color: #E0EEF4;
+}
+
+.btn-group {
+    width: 100%; 
+    background-color: #29A9E1;
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    margin: auto;
+    margin-top: -14px;
+}
+
+
+.btn-group-vertical {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.btn-group > .seleccionar {
+    font-size: 16px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    padding: 1em;
+}
+
+.btn-group > .seleccionar:hover {
+    background: #1394CD;
+    color: #FFFFFF;
+}
+
+.btn-default {
+    color: white;
+   
+}
+
+.nombre_palabra {
+    position: relative;
+    top: 10px;
+}
+
+.modal{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    
+    
+}
+
+img.flecha_izquierda {
+    width: 29px;
+    height:29px;
+    position: relative;
+    top: -2px;
+    left: 3px;
+}
+
+img.flecha_derecha {
+    width: 29px;
+    height:29px;
+    position: relative;
+    top: -2px;
+    left: 3px;
+}
+
+.videoWrapper {
+    margin: 0em 10em;
+}
+
+.altura {
+    height: 26em;
+}
+
+.barra {
+    width: 100%;
+}
+
+.barra img {
+    float: right;
+    position: relative;
+    top: 3em;
+    left: 5em;
+    
+}
+
+.equis {
+    position: relative;
+    top: 15px;
+    right: 26px;
+}
+
+.responsive-iframe {
+
+  width: 510px;
+  height: 335px;
+}
+
+@media (max-width: 1278px) {
+
+    .btn-toolbarx {
+       display: none;
+    }
+  }
+
+  .text-sky-500 {
+    --tw-text-opacity: 1;
+    color: rgb(14 165 233 / var(--tw-text-opacity));
+}
+
+.bg-red-600 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+
+
+
+.ico_heart_favorito {
+    top: 6em;
+    position: relative;
+    margin-left: 10px;
+    cursor: pointer;
+    z-index: 20;
+}
+
+
+img.heart {
+    background-image: url(/images/heart-fill.png);
+    display: block;
+    width: 0px;
+    height: 0px;
+    outline: none;
+    padding: 43px 51px 43px 51px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+ul.flex > li {
+  margin: 1em;
+}
+img.heart-fill {
+    background-image: url(/images/heart.png);
+    display: block;
+    width: 20px !important;
+    height: 20px !important;
+    outline: none;
+    padding: 43px 51px 43px 51px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+img.delete {
+    display: block;
+    background-image: url(/images/remove.png);
+    width: 20px !important;
+    height: 20px !important;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    position: relative;
+    outline: none;
+    top: 2em;
+    z-index: 1;
+    left: 1em;
+    cursor: pointer;
+    border: 0;
+    
+}
+
+.top_right_super{
+    position: relative;
+    top: 10px;
+    right: 25px;
+}
+
+.top_left_super{
+    position: relative;
+    top: 10px;
+    left: 25px;
+}
+
+form-select.palabras {
+    height: 89%;
+}
+
+select.scrollable-element {
+    border: solid 1px black;
+    margin-top: 10px;
+    background: transparent;
+    -webkit-appearance: none;
+}
+
+.he-20 {
+    height: 20em;
+}
+
+
+select {
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+}
+
+.mensaje {
+    display: none;
+    width: 28em;
+}
+
+@media (max-width: 1074px) {
+ .top_right_super {
+     display: none;
+  }
+}
+@media (max-width: 1004px) {
+
+    .movil {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+  }
+
+
+
+/* cambios css para modo vertical y horizontal */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 736px)
+{
+    .responsive-iframe {
+
+        width: 100%;
+        height: 100%;
+      }
+}
+/* cambios css solo para modo vertical */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 736px)
+and (orientation: portrait)
+{
+    .responsive-iframe {
+
+        width: 100%;
+        height: 100%;
+      }
+}
+
+/* cambios css solo para modo horizontal */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 736px)
+and (orientation: landscape)
+{
+    .responsive-iframe {
+
+        width: 100%;
+        height: 100%;
+      }
+}
+  
+
+  @media (min-width: 769px) {
+
+   
+    .mobile-menu {
+         display: none;
+    }
+  }
+

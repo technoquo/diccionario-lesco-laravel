@@ -8,24 +8,24 @@
             @if (session('resent'))
             <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100  px-3 py-4 mb-4"
                 role="alert">
-                {{ __('A fresh verification link has been sent to your email address.') }}
+                {{ __('Se ha enviado un nuevo enlace de verificación a su dirección de correo electrónico.') }}
             </div>
             @endif
 
-            <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+            <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-lg">
                 <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                    {{ __('Verify Your Email Address') }}
+                    {{ __('Verifique su dirección de correo electrónico') }}
                 </header>
 
                 <div class="w-full flex flex-wrap text-gray-700 leading-normal text-sm p-6 space-y-4 sm:text-base sm:space-y-6">
                     <p>
-                        {{ __('Before proceeding, please check your email for a verification link.') }}
+                        {{ __('Antes de continuar, verifique su correo electrónico para obtener un enlace de verificación.') }}
                     </p>
 
                     <p>
-                        {{ __('If you did not receive the email') }}, <a
+                        {{ __('Si no recibiste el correo electrónico') }}, <a
                             class="text-blue-500 hover:text-blue-700 no-underline hover:underline cursor-pointer"
-                            onclick="event.preventDefault(); document.getElementById('resend-verification-form').submit();">{{ __('click here to request another') }}</a>.
+                            onclick="event.preventDefault(); document.getElementById('resend-verification-form').submit();">{{ __('Haga clic aquí para solicitar otro') }}</a>.
                     </p>
 
                     <form id="resend-verification-form" method="POST" action="{{ route('verification.resend') }}"
