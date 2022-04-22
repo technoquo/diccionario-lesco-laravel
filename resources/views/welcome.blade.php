@@ -13,7 +13,7 @@
             <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-2xl">
 
                 <header class="font-semibold  text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                   Iniciar sesión
+                   Iniciar sesión dasfsd
                 </header>
 
                 <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ route('login') }}">
