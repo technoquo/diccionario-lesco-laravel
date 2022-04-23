@@ -44,19 +44,30 @@ class PanelController extends Controller
         return redirect('/admin');
     }
 
-
+ /**
+     * Display the specified resource.
+     *
+     * @param  string  $seccion
+     * @return \Illuminate\Http\Response
+    
+    **/
     public function dashboard()
     {
 
+      
         $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
         if ($validar == 1) {
 
             $senas = Senas::orderBy('palabra', 'ASC')->get();
-            return view('admin.dashboard', ['senas' => $senas]);
+            return view('admin.dashboard', ['senas' => $senas, 'defecto' =>'todos','seccion'=>'dashboard','select' => 'asc']);
         } else {
            return redirect('/'); 
         }
         
+    }
+
+    public function estado($estado){
+        return $estado;
     }
 
     public function activo()
@@ -67,7 +78,7 @@ class PanelController extends Controller
         if ($validar == 1) {
 
             $senas = Senas::where('estado', '=', 'A')->orderBy('palabra', 'ASC')->get();
-            return view('admin.dashboard', ['senas' => $senas]);
+            return view('admin.dashboard', ['senas' => $senas, 'defecto' =>'activo', 'seccion'=>'activo', 'select' => 'asc']);
         } else {
            return redirect('/'); 
         }
@@ -82,7 +93,7 @@ class PanelController extends Controller
         if ($validar == 1) {
 
             $senas = Senas::where('estado', '=', 'I')->orderBy('palabra', 'ASC')->get();
-            return view('admin.dashboard', ['senas' => $senas]);
+            return view('admin.dashboard', ['senas' => $senas , 'defecto' =>'inactivo', 'seccion'=>'inactivo', 'select' => 'asc']);
         } else {
            return redirect('/'); 
         }
@@ -97,12 +108,43 @@ class PanelController extends Controller
         if ($validar == 1) {
 
             $senas = Senas::where('estado', '=', '')->orderBy('palabra', 'ASC')->get();
-            return view('admin.dashboard', ['senas' => $senas]);
+            return view('admin.dashboard', ['senas' => $senas,  'defecto' =>'pendiente', 'seccion'=>'pendiente',  'select' => 'asc']);
         } else {
            return redirect('/'); 
         }
         
     }
+
+
+    public function order($seccion, $ordenar)
+    {
+    
+
+        $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
+        if ($validar == 1) {
+            switch ($seccion) {
+                case 'activo':
+                   $condicion = Senas::where('estado', '=', 'A')->orderBy('palabra', $ordenar)->get();
+                    break;
+                case 'inactivo':
+                    $condicion = Senas::where('estado', '=', 'I')->orderBy('palabra', $ordenar)->get();
+                    break;
+                case 'pendiente':
+                    $condicion = Senas::where('estado', '=', '')->orderBy('palabra', $ordenar)->get();
+                    break;
+                case 'dashboard':
+                    $condicion = Senas::orderBy('palabra', $ordenar)->get();
+                    break;
+            }
+            
+            $senas = $condicion;
+            return view('admin.dashboard', ['senas' => $senas, 'defecto' =>$seccion, 'seccion'=>$seccion, 'select' => $ordenar]);
+        } else {
+           return redirect('/'); 
+        }
+        
+    }
+
 
 
 

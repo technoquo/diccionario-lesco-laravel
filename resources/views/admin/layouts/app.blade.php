@@ -21,7 +21,7 @@
         content="1040391328006-gge4dmhms1l2kpjvuu8oto20jgoutr8o.apps.googleusercontent.com">
     <link rel="shortcut icon" type="image/x-icon"
         href="https://desarrollo.handsonlesco.com/images/favicon_handson.png" />
-        <script src="https://cdn.tailwindcss.com"></script>
+        
     <title>Panel de Control</title>
 
     <!-- Scripts -->

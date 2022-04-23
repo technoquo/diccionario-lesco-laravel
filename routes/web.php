@@ -21,6 +21,11 @@ use App\Http\Controllers\PanelController;
  Route::get('/', function () {
   return view('welcome');
  });
+
+
+Route::get('/admin/{seccion}/{ordenar}', [PanelController::class, 'order']);
+
+
 Auth::routes();
 
 //Route::resource('/diccionario',DiccionarioController::class);
