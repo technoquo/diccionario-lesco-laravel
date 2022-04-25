@@ -32,7 +32,7 @@ class DiccionarioController extends Controller
     {
         
         
-        $categorias = Categorias::orderBy('categoria', 'ASC')->get();
+        $categorias = Categorias::where('estado', '=', 'A')->orderBy('categoria', 'ASC')->get();
         $senas = Senas::orderBy('palabra', 'ASC')->get();
         $total = Senas::where('estado', '=', 'A')->count();
         

@@ -23,7 +23,7 @@ use App\Http\Controllers\PanelController;
  });
 
 
-Route::get('/admin/{seccion}/{ordenar}', [PanelController::class, 'order']);
+
 
 
 Auth::routes();
@@ -52,15 +52,14 @@ Route::post('/diccionario/Verificar', [DiccionarioController::class, 'Verificar'
 
 Route::get('/diccionario/send-mail', [DiccionarioController::class, 'send']);
 
-Route::resource('/admin/dashboard',PanelController::class);
+Route::get('/admin/dashboard',[PanelController::class, 'dashboard']);
 
-Route::get('/admin', [PanelController::class, 'index']);
+Route::resource('/admin',PanelController::class);
+
 
 Route::post('/admin/check_login', [PanelController::class, 'check_login'])->name('check_login');
 
 Route::post('/admin/salir', [PanelController::class, 'log_out'])->name('log_out');
-
-Route::get('/admin/dashboard', [PanelController::class, 'dashboard']);
 
 Route::get('/admin/activo', [PanelController::class, 'activo']);
 
@@ -68,6 +67,11 @@ Route::get('/admin/inactivo', [PanelController::class, 'inactivo']);
 
 Route::get('/admin/pendiente', [PanelController::class, 'pendiente']);
 
+Route::get('/admin/editar/{id}', [PanelController::class, 'editar']);
+
+Route::post('/admin/actualizar/{id}', [PanelController::class, 'update']);
+
+Route::get('/admin/{seccion}/{ordenar}', [PanelController::class, 'order']);
 
 Route::get('/senasfavoritas', [SenasFavoritasController::class, 'index'])->name('senasfavoritas')->middleware('auth');
 

@@ -67,13 +67,13 @@
     </div>
     </a>
     </div>
-    <button
+    <a  href="/admin/create"
         class="focus:ring-2 focus:ring-offset-2 focus:ring-red-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-red-700 hover:bg-red-600 focus:outline-none rounded">
         <p class="text-sm font-medium leading-none text-white">Crear una nueva seña</p>
-    </button>
+    </a>
     </div>
     <div class="mt-7 overflow-x-auto">
-        <table class="w-full whitespace-nowrap">
+        <table class="whitespace-nowrap m-auto">
             <tbody>
                 @foreach ($senas as $sena)
                     <tr tabindex="0" class="focus:outline-none h-16 border border-gray-100 dark:border-gray-600  rounded">
@@ -105,13 +105,13 @@
                             </td>
                         @endif
                         <td class="pl-4">
-                            <div class="text-center"><a href="dashboard/{{ $sena->id }}"
+                            <div class="text-center"><a href="/admin/editar/{{ $sena->id }}"
                                     class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 dark:text-gray-200  py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 dark:hover:bg-gray-700   dark:bg-gray-800  focus:outline-none">Editar</a>
                             </div>
                         </td>
                         <td class="pl-4">
-                            <div class="text-center"><a href=""
-                                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 dark:text-gray-200  py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 dark:hover:bg-gray-700   dark:bg-gray-800  focus:outline-none">Borrar</a>
+                            <div class="text-center"><a id="{{ $sena->id }}"
+                                    class="cursor-pointer focus:ring-2 delete focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 dark:text-gray-200  py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 dark:hover:bg-gray-700   dark:bg-gray-800  focus:outline-none">Borrar</a>
                             </div>
                         </td>
                     </tr>

@@ -6,6 +6,8 @@ use App\Models\UsersAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Senas;
+use App\Models\Categorias;
+use App\Http\Requests\CreateValidationRequest;
 
 class PanelController extends Controller
 {
@@ -28,13 +30,13 @@ class PanelController extends Controller
         if ($validar == 1) {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect('/admin/dashboard');
+            return redirect('/dashboard');
         } else {
             return redirect('/admin')->with(['message' => 'Correo electrónico o contraseña inválida']);
         }
         } else {
             return redirect('/admin')->with('message', 'Solamente para los internos de Hands On');
-            return redirect('/admin')->with(['message' => 'Solamente para los internos de Hands On']);
+         
         }
     }
 
@@ -54,7 +56,7 @@ class PanelController extends Controller
     public function dashboard()
     {
 
-      
+        
         $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
         if ($validar == 1) {
 
@@ -68,51 +70,6 @@ class PanelController extends Controller
 
     public function estado($estado){
         return $estado;
-    }
-
-    public function activo()
-    {
-
-        
-        $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
-        if ($validar == 1) {
-
-            $senas = Senas::where('estado', '=', 'A')->orderBy('palabra', 'ASC')->get();
-            return view('admin.dashboard', ['senas' => $senas, 'defecto' =>'activo', 'seccion'=>'activo', 'select' => 'asc']);
-        } else {
-           return redirect('/'); 
-        }
-        
-    }
-
-    public function inactivo()
-    {
-
-        
-        $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
-        if ($validar == 1) {
-
-            $senas = Senas::where('estado', '=', 'I')->orderBy('palabra', 'ASC')->get();
-            return view('admin.dashboard', ['senas' => $senas , 'defecto' =>'inactivo', 'seccion'=>'inactivo', 'select' => 'asc']);
-        } else {
-           return redirect('/'); 
-        }
-        
-    }
-
-    public function pendiente()
-    {
-
-        
-        $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
-        if ($validar == 1) {
-
-            $senas = Senas::where('estado', '=', '')->orderBy('palabra', 'ASC')->get();
-            return view('admin.dashboard', ['senas' => $senas,  'defecto' =>'pendiente', 'seccion'=>'pendiente',  'select' => 'asc']);
-        } else {
-           return redirect('/'); 
-        }
-        
     }
 
 
@@ -157,7 +114,8 @@ class PanelController extends Controller
      */
     public function create()
     {
-        //
+        $categorias = Categorias::where('estado', '=', 'A')->orderBy('categoria', 'ASC')->get();
+        return view('admin.create', ['categorias' => $categorias]);
     }
 
     /**
@@ -168,22 +126,70 @@ class PanelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $validar = Senas::where('palabra', '=', $request->input('palabra'))->count();
+        if ($validar == 0) {;
+
+       if ($request->input('estado') == 'on'){
+               $estado = 'A';
+       } else {
+               $estado = 'I';
+       }
+
+       $request->validate([
+        'palabra' => 'required',
+        'video' => 'required',
+        'letra' => 'required',       
+    ]);
+    
+      Senas::create([
+            'palabra' => $request->input('palabra'),
+            'video'=> $request->input('video'),
+            'cod_categoria' =>  $request->input('cod_categoria'), 
+            'letra' =>  $request->input('letra'), 
+            'estado' => $estado, 
+          
+            
+        ]);
+
+          
+
+         return redirect('/admin/dashboard');
+      } else {
+        return redirect('/admin/create')->with('message', 'La palabra '. $request->input('palabra'). ' ya se encuentra en la base de datos');
+      }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($seccion)
     {
-        
-       $sena = Senas::find($id);
-       
-
-       return view('admin.show')->with('sena', $sena);
+        $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
+        if ($validar == 1) {
+            switch ($seccion) {
+                case 'activo':
+                   $condicion = Senas::where('estado', '=', 'A')->get();
+                    break;
+                case 'inactivo':
+                    $condicion = Senas::where('estado', '=', 'I')->get();
+                    break;
+                case 'pendiente':
+                    $condicion = Senas::where('estado', '=', '')->get();
+                    break;
+                case 'dashboard':
+                    $condicion = Senas::orderBy('palabra', 'ASC')->get();
+                    break;
+            }
+            
+            $senas = $condicion;
+            return view('admin.dashboard', ['senas' => $senas, 'defecto' =>$seccion, 'seccion'=>$seccion, 'select' => 'asc']);
+        } else {
+           return redirect('/'); 
+        }
     }
 
     /**
@@ -192,9 +198,11 @@ class PanelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editar($id)
     {
-        //
+        $senas = Senas::find($id);
+        $categorias = Categorias::where('estado', '=', 'A')->orderBy('categoria', 'ASC')->get();
+        return view('admin.edit', ['categorias' => $categorias])->with('sena', $senas);
     }
 
     /**
@@ -206,7 +214,30 @@ class PanelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->input('estado') == 'on'){
+            $estado = 'A';
+         } else {
+            $estado = 'I';
+         }
+
+         $request->validate([
+            'palabra' => 'required',
+            'video' => 'required',
+            'letra' => 'required',       
+        ]);
+                
+        Senas::where('id',$id)
+                 ->update([
+                    'palabra' => $request->input('palabra'),
+                    'video'=> $request->input('video'),
+                    'cod_categoria' =>  $request->input('cod_categoria'), 
+                    'letra' =>  $request->input('letra'), 
+                    'estado' => $estado, 
+            
+        ]);
+
+       // return redirect('/admin/editar/'.$id)->with('message', 'Actualizado');
+       return redirect('/admin/dashboard');
     }
 
     /**
