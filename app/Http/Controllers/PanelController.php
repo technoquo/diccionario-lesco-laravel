@@ -30,7 +30,7 @@ class PanelController extends Controller
         if ($validar == 1) {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect('/dashboard');
+            return redirect('/admin/dashboard');
         } else {
             return redirect('/admin')->with(['message' => 'Correo electrónico o contraseña inválida']);
         }
