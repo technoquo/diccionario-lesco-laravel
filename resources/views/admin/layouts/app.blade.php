@@ -49,9 +49,9 @@
                             @if (Auth::user())
                             <li><a class="no-underline text-black mr-4 hover:text-red-500" 
                                     href="/admin/categorias">Categoria</a></li>
-                            <li><a class="no-underline  text-black mr-4 hover:text-red-500" target="_blank"
+                            <li><a class="no-underline  text-black mr-4 hover:text-red-500" 
                                     href="#">Senas</a></li>
-                            <li><a class="no-underline  text-black mr-4 hover:text-red-500" target="_blank"
+                            <li><a class="no-underline  text-black mr-4 hover:text-red-500" 
                                     href="#">Usuarios</a></li>                           
                                 <li> <a href="{{ route('log_out') }}"
                                         class="py-13 pt-15  mr-4 text-black hover:text-red-500" onclick="event.preventDefault();
