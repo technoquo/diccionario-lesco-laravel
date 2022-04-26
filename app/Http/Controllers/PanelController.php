@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Senas;
 use App\Models\Categorias;
+use App\Models\User;
 use App\Http\Requests\CreateValidationRequest;
 
 class PanelController extends Controller
@@ -257,4 +258,28 @@ class PanelController extends Controller
         $sena->delete();
         return redirect('/admin/dashboard');
     }
+
+
+ /**
+     * Display the specified resource.
+     *
+     * @param  string  $seccion
+     * @return \Illuminate\Http\Response
+    
+    **/
+    public function usuarios()
+    {
+
+     
+        $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
+        if ($validar == 1) {
+
+            $users = User::orderBy('name', 'ASC')->get();
+            return view('admin.usuarios', ['users' => $users]);
+        } else {
+           return redirect('/'); 
+        }
+        
+    }
+
 }

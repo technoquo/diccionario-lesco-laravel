@@ -47,12 +47,12 @@
                     <div class="hidden md:flex items-center space-x-1">
                         <ul class="flex text-sky-500">
                             @if (Auth::user())
+                            <li><a class="no-underline  text-black mr-4 hover:text-red-500" 
+                                href="/admin/dashboard">Senas</a></li>
                             <li><a class="no-underline text-black mr-4 hover:text-red-500" 
-                                    href="/admin/categorias">Categoria</a></li>
+                                    href="/admin/categorias">Categoria</a></li>                      
                             <li><a class="no-underline  text-black mr-4 hover:text-red-500" 
-                                    href="#">Senas</a></li>
-                            <li><a class="no-underline  text-black mr-4 hover:text-red-500" 
-                                    href="#">Usuarios</a></li>                           
+                                    href="/admin/usuarios">Usuarios</a></li>                           
                                 <li> <a href="{{ route('log_out') }}"
                                         class="py-13 pt-15  mr-4 text-black hover:text-red-500" onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>

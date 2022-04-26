@@ -63,6 +63,8 @@ Route::resource('/admin/categorias',CategoriaController::class);
 
 Route::get('/admin/dashboard',[PanelController::class, 'dashboard']);
 
+Route::get('/admin/usuarios',[PanelController::class, 'usuarios']);
+
 Route::resource('/admin',PanelController::class);
 
 
