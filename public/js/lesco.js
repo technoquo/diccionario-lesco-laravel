@@ -345,6 +345,19 @@ $(document).on("click", ".seleccionar", function(event) {
             });
 
 
+            $(".form-input-admin").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+               
+        
+                $("tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                
+                    
+                });
+        
+            });
+
+
             $(document).on("click", ".agregarsenafavorita", function(event) {
 
              

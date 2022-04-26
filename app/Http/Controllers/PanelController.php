@@ -56,7 +56,7 @@ class PanelController extends Controller
     public function dashboard()
     {
 
-        
+     
         $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
         if ($validar == 1) {
 
@@ -75,7 +75,7 @@ class PanelController extends Controller
 
     public function order($seccion, $ordenar)
     {
-    
+      
 
         $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
         if ($validar == 1) {
@@ -90,8 +90,9 @@ class PanelController extends Controller
                     $condicion = Senas::where('estado', '=', '')->orderBy('palabra', $ordenar)->get();
                     break;
                 case 'dashboard':
-                    $condicion = Senas::orderBy('palabra', $ordenar)->get();
-                    break;
+                        $condicion = Senas::where('estado', '=', '')->orderBy('palabra', $ordenar)->get();
+                        break;
+                
             }
             
             $senas = $condicion;
@@ -168,6 +169,7 @@ class PanelController extends Controller
      */
     public function show($seccion)
     {
+       
         $validar =  UsersAdmin::where('email', '=', auth()->user()->email)->where('estado', '=', 'A')->count();
         if ($validar == 1) {
             switch ($seccion) {
@@ -180,11 +182,12 @@ class PanelController extends Controller
                 case 'pendiente':
                     $condicion = Senas::where('estado', '=', '')->get();
                     break;
-                case 'dashboard':
+                case '':
                     $condicion = Senas::orderBy('palabra', 'ASC')->get();
+                    
                     break;
             }
-            
+          
             $senas = $condicion;
             return view('admin.dashboard', ['senas' => $senas, 'defecto' =>$seccion, 'seccion'=>$seccion, 'select' => 'asc']);
         } else {
@@ -248,6 +251,10 @@ class PanelController extends Controller
      */
     public function destroy($id)
     {
-        //
+      
+        $sena = Senas::find($id);
+
+        $sena->delete();
+        return redirect('/admin/dashboard');
     }
 }

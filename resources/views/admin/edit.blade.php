@@ -9,11 +9,11 @@
 
     <div class="flex justify-center pt-20">
 
-        <form action="/admin/actualizar/{{ $sena->id }}" style="box-shadow:-50px -4px 50px #f0f0f0;" method="POST">
+        <form action="/admin/actualizar/{{ $sena->id }}" style="box-shadow:-50px -4px 50px #f0f0f0;" class="w-3/6" method="POST">
             @csrf
             <div class="py-12 px-8">
                 <h2 class="text-2xl font-bold">Actualizar palabra para la seña</h2>
-                <div class="mt-8 max-w-md">
+                <div class="mt-8 max-w-md m-auto">
                     <div class="grid grid-cols-1 gap-6">
                              <label class="block">
                             <span class="text-gray-700">Video</span>

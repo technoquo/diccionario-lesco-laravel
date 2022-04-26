@@ -7,6 +7,10 @@
                 <p tabindex="0"
                     class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800 dark:text-white">
                     Lista de vocabularios de señas</p>
+                    <label class="block">
+                        <span class="text-gray-700">Buscar</span>
+                        <input type="search" class="form-input-admin mt-1 block w-full rounded" />
+                    </label>
                 <div
                     class="py-3 px-4 flex items-center text-sm font-medium leading-none text-gray-600 dark:text-gray-200  bg-gray-200 dark:bg-gray-800  hover:bg-gray-300   dark:hover:bg-gray-700  cursor-pointer rounded">
                     <p>Ordenar:</p>
@@ -15,22 +19,26 @@
                         <option class="text-sm text-indigo-800" value="/admin/{{ $seccion }}/desc" @if ($select == 'desc') selected @endif>Z-A</option>
                     </select>
                 </div>
+               
             </div>
         </div>
         <div class="bg-white dark:bg-gray-900  py-4 md:py-7 px-4 md:px-8 xl:px-10">
-            <div class="sm:flex items-center justify-between">
+            <div class="sm:flex items-center justify-center">
                 <div class="flex items-center">
                     <a class="rounded-full focus:outline-none focus:ring-2  focus:bg-indigo-50 focus:ring-indigo-800"
                         href="/admin/dashboard">
 
-                        @if ($defecto == 'todos')
+                        @if (($defecto == 'todos') or ($defecto == 'dashboard'))
                             <div class="py-2 px-8 bg-blue-500 rounded-full text-white">
+                                <p>Todos</p>
+                            </div>
                             @else
                                 <div
                                     class="py-2 px-8 text-gray-600 dark:text-gray-200  hover:text-indigo-700 hover:bg-indigo-100 rounded-full ">
-                        @endif
+                        
                         <p>Todos</p>
-                </div>
+                          </div>
+                @endif
                 </a>
                 <a class="rounded-full focus:outline-none focus:ring-2 focus:bg-indigo-50 focus:ring-indigo-800 ml-4 sm:ml-8"
                     href="/admin/activo">
@@ -73,7 +81,7 @@
     </a>
     </div>
     <div class="mt-7 overflow-x-auto">
-        <table class="whitespace-nowrap m-auto">
+        <table class="whitespace-nowrap m-auto w-1/2">
             <tbody>
                 @foreach ($senas as $sena)
                     <tr tabindex="0" class="focus:outline-none h-16 border border-gray-100 dark:border-gray-600  rounded">
@@ -110,9 +118,12 @@
                             </div>
                         </td>
                         <td class="pl-4">
-                            <div class="text-center"><a id="{{ $sena->id }}"
-                                    class="cursor-pointer focus:ring-2 delete focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 dark:text-gray-200  py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 dark:hover:bg-gray-700   dark:bg-gray-800  focus:outline-none">Borrar</a>
-                            </div>
+                            <form action="{{ route('admin.destroy', $sena->id) }}" method="POST">
+                                {{ method_field('DELETE') }}
+                                {{ csrf_field() }}
+                               <button type='submit'class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 dark:text-gray-200  py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 dark:hover:bg-gray-700   dark:bg-gray-800  focus:outline-none" >
+                                Eliminar</button>
+                               </form>
                         </td>
                     </tr>
                     <tr class="h-3"></tr>
