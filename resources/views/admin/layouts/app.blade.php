@@ -47,8 +47,8 @@
                     <div class="hidden md:flex items-center space-x-1">
                         <ul class="flex text-sky-500">
                             @if (Auth::user())
-                            <li><a class="no-underline text-black mr-4 hover:text-red-500" target="_blank"
-                                    href="#">Categoria</a></li>
+                            <li><a class="no-underline text-black mr-4 hover:text-red-500" 
+                                    href="/admin/categorias">Categoria</a></li>
                             <li><a class="no-underline  text-black mr-4 hover:text-red-500" target="_blank"
                                     href="#">Senas</a></li>
                             <li><a class="no-underline  text-black mr-4 hover:text-red-500" target="_blank"

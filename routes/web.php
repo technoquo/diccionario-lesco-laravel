@@ -6,6 +6,7 @@ use App\Http\Controllers\SenasFavoritasController;
 use App\Http\Controllers\ListaSenasController;
 use App\Http\Controllers\DonacionesController;
 use App\Http\Controllers\PanelController;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,14 @@ Route::post('/diccionario/Verificar', [DiccionarioController::class, 'Verificar'
 
 Route::get('/diccionario/send-mail', [DiccionarioController::class, 'send']);
 
+
+
+Route::get('/admin/categorias/crear_categoria', [CategoriaController::class, 'create']);
+
+Route::post('/admin/categorias/update', [CategoriaController::class, 'update']);
+
+Route::resource('/admin/categorias',CategoriaController::class);
+
 Route::get('/admin/dashboard',[PanelController::class, 'dashboard']);
 
 Route::resource('/admin',PanelController::class);
@@ -72,6 +81,14 @@ Route::get('/admin/editar/{id}', [PanelController::class, 'editar']);
 Route::post('/admin/actualizar/{id}', [PanelController::class, 'update']);
 
 Route::get('/admin/{seccion}/{ordenar}', [PanelController::class, 'order']);
+
+Route::get('/admin/{seccion}/{ordenar}', [PanelController::class, 'order']);
+
+
+Route::get('/admin/crear_categoria', [CategoriaController::class, 'update']);
+
+Route::get('admin/editar_categoria/{id}', [CategoriaController::class, 'editar_categoria']);
+  
 
 Route::get('/senasfavoritas', [SenasFavoritasController::class, 'index'])->name('senasfavoritas')->middleware('auth');
 
