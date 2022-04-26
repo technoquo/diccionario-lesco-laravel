@@ -6,7 +6,7 @@
             <div class="flex items-center justify-between">
                 <p tabindex="0"
                     class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800 dark:text-white">
-                    Lista de usuarios</p>
+                    Lista de usuarios registrados ({{ $cantidad }})</p>
                 <label class="block">
                     <span class="text-gray-700">Buscar</span>
                     <input type="search" class="form-input-admin mt-1 block w-full rounded" />

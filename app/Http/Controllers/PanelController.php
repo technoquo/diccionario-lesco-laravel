@@ -275,7 +275,8 @@ class PanelController extends Controller
         if ($validar == 1) {
 
             $users = User::orderBy('name', 'ASC')->get();
-            return view('admin.usuarios', ['users' => $users]);
+            $cantidad =  User::orderBy('email', 'ASC')->count();
+            return view('admin.usuarios', ['users' => $users, 'cantidad' => $cantidad]);
         } else {
            return redirect('/'); 
         }
