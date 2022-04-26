@@ -493,7 +493,7 @@ $(document).on("click", ".seleccionar", function(event) {
                      success: function(response){
                        
                     
-                       video = '<div class="barra"><img class="mostrar_' + response['data'][0].id + ' ico_heart_left heart-fill cursor-pointer agregarcorazonfavorito" id="' + response['data'][0].id + '"></div><iframe width="100%" height="600" src="http://www.youtube.com/embed/' + response['data'][0].video + '" frameborder="0" allowfullscreen></iframe><div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8"><div class="nombre_palabra">' + response['data'][0].palabra + '</div></div>';
+                       video = '<div class="barra"><img class="mostrar_' + response['data'][0].id + ' ico_heart_left heart-fill cursor-pointer agregarcorazonfavorito" id="' + response['data'][0].id + '"></div><iframe width="100%" height="600" src="https://www.youtube.com/embed/' + response['data'][0].video + '" frameborder="0" allowfullscreen></iframe><div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8"><div class="nombre_palabra">' + response['data'][0].palabra + '</div></div>';
                        
                        $('.videoWrapper').append(video);
                        CorazonFavorito();
