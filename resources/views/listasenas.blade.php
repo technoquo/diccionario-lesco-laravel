@@ -51,7 +51,7 @@
                     <div class="videoWrapper">
                         <div class="barra">                          
                         <img class="mostrar_{{ $defecto->id }} ico_heart_left heart-fill cursor-pointer" id="{{ $defecto->id  }}"></div>
-                        <iframe width="100%" height="600" src="http://www.youtube.com/embed/{{ $defecto->video }}"
+                        <iframe width="100%" height="600" src="https://www.youtube.com/embed/{{ $defecto->video }}"
                             frameborder="0" allowfullscreen></iframe>
                         <div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8">
                             <div class="nombre_palabra">
