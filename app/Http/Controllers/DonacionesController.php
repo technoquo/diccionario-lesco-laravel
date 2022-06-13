@@ -53,8 +53,8 @@ class DonacionesController extends Controller
   ];
     
     $myUsers = $request->email;
-    $myMoreUsers ='soporte@handsonlesco.com';
-    $evenMyMoreUsers = 'technoquo@gmail.com';
+    $myMoreUsers ='cursos@handsonlesco.com';
+    $evenMyMoreUsers = 'leonel@handsonlesco.com';
 
     Mail::to($myUsers)
         ->cc($myMoreUsers)

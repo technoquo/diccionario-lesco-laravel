@@ -32,6 +32,6 @@ class Mail extends Mailable
     public  function build()
     {
         //return $this->view('view.name');
-        return $this->subject('Mail from codingspoint.com')->view('emails.mail');
+        return $this->subject('Donación para Diccionario')->view('emails.mail');
     }
 }
