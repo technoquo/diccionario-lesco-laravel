@@ -251,7 +251,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
     <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 25px">
       <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
         <a href="https://www.facebook.com/handsonlesco" title="Facebook" target="_blank">
-          <img src="/images/fb-svg.png" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+          <img src="http://dev.diccionariolesco.com/images/fb-svg.png" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
         </a>
       </td></tr>
     </tbody></table>
