@@ -168,7 +168,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
   <tr>
     <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="http://developer.handsonlesco.com/images/image-5.png" alt="Wrong Email" title="Logo Hands On" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 30%;max-width: 159px;" width="159" class="v-src-width v-src-max-width"/>
+      <img align="center" border="0" src="https://handsonlesco.com/wp-content/uploads/2020/10/HANDSON_HEADER_LOGO.png" alt="Wrong Email" title="Logo Hands On" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 30%;max-width: 159px;" width="159" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>
