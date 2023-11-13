@@ -19,23 +19,28 @@ use App\Http\Controllers\CategoriaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Temporal
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
+// Route::get('/', function () {
+//     return view('welcome');
+// });  temporal
 
 
-Auth::routes();
+
+// temporal
+Route::get('/', [DiccionarioController::class, 'index']);
+
 
 
 //Route::resource('/diccionario',DiccionarioController::class);
 
 //Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/diccionario', [DiccionarioController::class, 'index'])->name('diccionario')->middleware('auth');
+
+
+//Auth::routes(); importante
+
+//Route::get('/diccionario', [DiccionarioController::class, 'index'])->name('diccionario')->middleware('auth');
 
 Route::post('/diccionario/MostrarLetra', [DiccionarioController::class, 'MostrarLetra']);
 
@@ -96,7 +101,8 @@ Route::get('admin/editar_categoria/{id}', [CategoriaController::class, 'editar_c
 
 Route::get('/senasfavoritas', [SenasFavoritasController::class, 'index'])->name('senasfavoritas')->middleware('auth');
 
-Route::get('/listasenas', [ListaSenasController::class, 'index'])->name('listasenas')->middleware('auth');
+Route::get('/listasenas', [ListaSenasController::class, 'index'])->name('listasenas');
+//Route::get('/listasenas', [ListaSenasController::class, 'index'])->name('listasenas')->middleware('auth');
 
 Route::post('/listasenas/MostrarLetra', [ListaSenasController::class, 'MostrarLetra']);
 

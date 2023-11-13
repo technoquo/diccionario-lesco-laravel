@@ -8,7 +8,7 @@
             </div>
             <div class="bg-white content-center rounded-t-md">
                 <div class="flex float-left top_left_super">
-                    <div class="inline-flex text-cyan-600 pointer text-sky-500"><a href="/diccionario"
+                    <div class="inline-flex text-cyan-600 pointer text-sky-500"><a href="/"
                             aria-label="La vista de mosaico"><img class="flecha_derecha"
                                 src="{{ asset('images/flecha_izquierda.png') }}" alt="flecha" /></a><span
                             class="mt-1 ml-2"> Ir a la vista de mosaico</span></div>
@@ -40,7 +40,8 @@
             <div class="flex">
                 <div class="flex-initial w-64">
                     <div class="mt-10"><span id="cantidadPalabras">Palabras ({{ $total }})</span></div>
-                    <select class="orden_letra scrollable-element altura" id="" aria-label="Lista de palabras" size="10">
+                    <select class="orden_letra scrollable-element altura" id="" aria-label="Lista de palabras"
+                        size="10">
                         @foreach ($senas as $sena)
                             <option value="{{ $sena->id }}" class="w-56 count uppercase"> {{ $sena->palabra }}
                             </option>
@@ -49,8 +50,10 @@
                 </div>
                 <div class="flex-initial w-full">
                     <div class="videoWrapper">
-                        <div class="barra">                          
-                        <img class="mostrar_{{ $defecto->id }} ico_heart_left heart-fill cursor-pointer" id="{{ $defecto->id  }}"></div>
+                        <div class="barra" style="margin-bottom: 60px">
+                            {{-- <img class="mostrar_{{ $defecto->id }} ico_heart_left heart-fill cursor-pointer"
+                                id="{{ $defecto->id }}"> --}}
+                        </div>
                         <iframe width="100%" height="600" src="https://www.youtube.com/embed/{{ $defecto->video }}"
                             frameborder="0" allowfullscreen></iframe>
                         <div class="text-sky-500 dark:text-sky-400 text-center uppercase bg-white h-8">
@@ -61,6 +64,6 @@
                     </div>
                 </div>
             </div>
-            <div class="pt-20"> </div>          
+            <div class="pt-20"> </div>
         </div>
     @endsection
