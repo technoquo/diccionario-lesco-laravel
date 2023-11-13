@@ -1,68 +1,90 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@section('content')
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+@if (Auth::user())
+<script>
+    window.location = "/diccionario";
+  </script>
+@endif
+<main class="sm:container sm:mx-auto sm:max-w-lg sm:mt-10">
+    <div class="flex">
+        <div class="w-full">
+            <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-2xl">
 
-    <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-</head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
-<div class="flex flex-col">
-    @if(Route::has('login'))
-        <div class="absolute top-0 right-0 mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
-            @auth
-                <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Home') }}</a>
-            @else
-                <a href="{{ route('login') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Login') }}</a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Register') }}</a>
-                @endif
-            @endauth
-        </div>
-    @endif
+                <header class="font-semibold  text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                   Iniciar sesión
+                </header>
 
-    <div class="min-h-screen flex items-center justify-center">
-        <div class="flex flex-col justify-around h-full">
-            <div>
-                <h1 class="mb-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
-                    {{ config('app.name', 'Laravel') }}
-                </h1>
-                <ul class="flex flex-col space-y-2 sm:flex-row sm:flex-wrap sm:space-x-8 sm:space-y-0">
-                    <li>
-                        <a href="https://laravel.com/docs" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Documentation">Documentation</a>
-                    </li>
-                    <li>
-                        <a href="https://laracasts.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Laracasts">Laracasts</a>
-                    </li>
-                    <li>
-                        <a href="https://laravel-news.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="News">News</a>
-                    </li>
-                    <li>
-                        <a href="https://nova.laravel.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Nova">Nova</a>
-                    </li>
-                    <li>
-                        <a href="https://forge.laravel.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Forge">Forge</a>
-                    </li>
-                    <li>
-                        <a href="https://vapor.laravel.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Vapor">Vapor</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/laravel/laravel" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="GitHub">GitHub</a>
-                    </li>
-                    <li>
-                        <a href="https://tailwindcss.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Tailwind Css">Tailwind CSS</a>
-                    </li>
-                </ul>
-            </div>
+                <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <div class="flex flex-wrap">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Correo electrónico') }}:
+                        </label>
+
+                        <input id="email" type="email"
+                            class="w-full form-input border-2 rounded" name="email"
+                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                        @error('email')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-wrap">
+                        <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Contraseña') }}:
+                        </label>
+
+                        <input id="password" type="password"
+                            class="w-full form-input border-2 rounded" name="password"
+                            required>
+
+                        @error('password')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="flex items-center">
+                        <label class="inline-flex items-center text-sm text-gray-700" for="remember">
+                            <input type="checkbox" name="remember" id="remember" class="form-checkbox border-2"
+                                {{ old('remember') ? 'checked' : '' }}>
+                            <span class="ml-2">{{ __('Recordarme') }}</span>
+                        </label>
+
+                        @if (Route::has('password.request'))
+                        <a class="text-sm text-blue-500 whitespace-no-wrap no-underline ml-auto"
+                            href="{{ route('password.request') }}">
+                            {{ __('¿Olvidaste tu contraseña?') }}
+                        </a>
+                        @endif
+                    </div>
+
+                    <div class="flex flex-wrap">
+                        <button type="submit"
+                        class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500  sm:py-4">
+                            {{ __('Empezar') }}
+                        </button>
+
+                        @if (Route::has('register'))
+                        <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
+                            {{ __("¿No tenés una cuenta? ") }}
+                            <a class="text-blue-500  hover:underline" href="{{ route('register') }}">
+                                {{ __('Registrarse') }}
+                            </a>
+                        </p>
+                        @endif
+                    </div>
+                </form>
+
+            </section>
         </div>
     </div>
-</div>
-</body>
-</html>
+</main>
+@endsection
